@@ -7,6 +7,15 @@ export const Container = styled.header`
   padding: 1rem 2.5rem;
   border-bottom: 1px solid ${({ theme }) => theme.colors.gray.default};
   box-shadow: ${({ theme }) => theme.shadows.sm};
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: ${({ theme }) => theme.colors.white};
+
+  a {
+    line-height: 0;
+  }
 
   img {
     width: 6.25rem;

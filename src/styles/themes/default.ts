@@ -17,6 +17,10 @@ export const defaultTheme = {
       default: '#EFEFEF',
       dark: '#666666',
     },
+
+    orange: {
+      default: '#F7841E',
+    },
   },
 
   shadows: {

@@ -9,11 +9,15 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     background-color: ${({ theme }) => theme.colors.white};
-    color: ${({ theme }) => theme.colors.gray.dark};
     -webkit-font-smoothing: antialiased;
   }
-
+  
   body, input, textarea, select, button {
+    color: ${({ theme }) => theme.colors.gray.dark};
     font: 400 1rem Roboto, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: ${({ theme }) => theme.colors.title};
   }
 `
