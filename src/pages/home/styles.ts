@@ -22,3 +22,9 @@ export const Main = styled.main`
     }
   }
 `
+
+export const SuppliersGrid = styled.section`
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+`

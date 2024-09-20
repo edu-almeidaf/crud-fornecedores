@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 export const Box = styled.div`
   background-color: ${({ theme }) => theme.colors.gray.light};
-  border-radius: 12px;
+  border-radius: ${({ theme }) => theme.radius.xl};
   padding: 3rem 1rem;
   display: flex;
   flex-direction: column;
@@ -44,7 +44,7 @@ export const AddSupplierButton = styled(Link)`
   width: 100%;
   padding: 1rem 8rem;
   text-align: center;
-  border-radius: 8px;
+  border-radius: ${({ theme }) => theme.radius.md};
 
   @media (min-width: 1024px) {
     width: auto;

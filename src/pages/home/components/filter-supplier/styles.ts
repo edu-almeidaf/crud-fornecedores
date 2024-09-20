@@ -19,7 +19,7 @@ export const Container = styled.div`
 
 export const FilterInput = styled.input`
   padding: 0.75rem 0.5rem;
-  border-radius: 10px;
+  border-radius: ${({ theme }) => theme.radius.lg};
   border: 0;
   outline: 0;
   flex: 1;
@@ -38,7 +38,7 @@ export const FilterInput = styled.input`
 export const FilterButton = styled.button`
   background-color: ${({ theme }) => theme.colors.orange.default};
   padding: 0.75rem 3rem;
-  border-radius: 8px;
+  border-radius: ${({ theme }) => theme.radius.md};
   border: 1px solid ${({ theme }) => theme.colors.orange.default};
   cursor: pointer;
   color: ${({ theme }) => theme.colors.white};
