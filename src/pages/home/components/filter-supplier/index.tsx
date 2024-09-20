@@ -1,6 +1,6 @@
 import { Container, FilterButton, FilterInput } from './styles'
 
-export function Filter() {
+export function FilterSupplier() {
   return (
     <Container>
       <FilterInput type="text" placeholder="Encontre um fornecedor pelo nome" />

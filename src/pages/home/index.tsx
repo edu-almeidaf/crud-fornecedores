@@ -1,4 +1,5 @@
-import { ListSuppliers } from '@/components/list-suppliers'
+import { EmptyList } from './components/empty-list'
+import { FilterSupplier } from './components/filter-supplier'
 import { Main } from './styles'
 
 export function Home() {
@@ -6,7 +7,9 @@ export function Home() {
     <Main>
       <h1>Fornecedores</h1>
 
-      <ListSuppliers />
+      <FilterSupplier />
+
+      <EmptyList />
     </Main>
   )
 }
