@@ -1,27 +1,35 @@
-// import { EmptyList } from './components/empty-list'
+import { EmptyList } from './components/empty-list'
 import { Main } from '@/components/main/styles'
 import { Card } from './components/card'
 import { FilterSupplier } from './components/filter-supplier'
 import { SuppliersList, AddSupplierButton } from './styles'
+import { useQuery } from '@tanstack/react-query'
+import { getSuppliers } from '@/http/get-suppliers'
 
 export function Home() {
+  const { data: suppliers } = useQuery({
+    queryKey: ['suppliers'],
+    queryFn: getSuppliers,
+  })
+
+  console.log(suppliers)
+
   return (
     <Main>
       <h1>Fornecedores</h1>
 
       <AddSupplierButton to="/new">Novo Fornecedor</AddSupplierButton>
 
-      {/* <EmptyList /> */}
-
       <div>
         <SuppliersList>
           <FilterSupplier />
-          <Card name="Nome do Fornecedor" />
-          <Card name="Nome do Fornecedor" />
-          <Card name="Nome do Fornecedor a;lskdj lajsd lkjalskdjalksjdlasjdl lasjdlkajsdlkjasldkajsldjasldj asdjlaskjdlasjdlaks laksdjalsdjlsakjd lkjsadlkas daksdalskjdlas jd asldjaslkdj askldaslkdjas dlkjasjdlajsdlasj dlkasjdlka " />
-          <Card name="Nome do Fornecedor" />
-          <Card name="Nome do Fornecedor" />
-          <Card name="Nome do Fornecedor" />
+          {suppliers && suppliers.length > 0 ? (
+            suppliers.map((supplier) => (
+              <Card key={supplier.id} name={supplier.name} id={supplier.id} />
+            ))
+          ) : (
+            <EmptyList />
+          )}
         </SuppliersList>
       </div>
     </Main>

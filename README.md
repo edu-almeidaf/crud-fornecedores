@@ -59,3 +59,4 @@ interface Endereco {
 [ ] - Inserir ícone de search no input de filtragem pelo nome
 [ ] - Inserir paginação na lista de fornecedores
 [ ] - Inserir ícone de logout futuramente no header
+[ ] - Trabalhar com tratamento de erros e cache na rota de criação de fornecedor

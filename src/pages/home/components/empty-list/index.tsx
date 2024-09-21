@@ -6,7 +6,7 @@ export function EmptyList() {
       <InboxIcon />
       <TextContainer>
         <h2>Nenhum fornecedor encontrado</h2>
-        <p>Crie seu primeiro fornecedor</p>
+        <p>Crie um fornecedor ou realize filtro diferente</p>
       </TextContainer>
       <AddSupplierButton to="/new">Adicionar</AddSupplierButton>
     </Box>
