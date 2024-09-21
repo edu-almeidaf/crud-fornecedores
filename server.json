@@ -1,0 +1,84 @@
+{
+  "suppliers": [
+    {
+      "name": "Ekajsdl",
+      "description": "",
+      "contacts": [
+        {
+          "name": "alksjdlas",
+          "phoneNumber": "(42) 99999-9999",
+          "address": {
+            "zipCode": "12345-789",
+            "state": "PR",
+            "city": "kahjsdjklh",
+            "street": "alskdja",
+            "number": "111",
+            "complement": "",
+            "reference": ""
+          }
+        }
+      ],
+      "id": 1
+    },
+    {
+      "name": "Ekajsdl",
+      "description": "",
+      "contacts": [
+        {
+          "name": "alksjdlas",
+          "phoneNumber": "(42) 99999-9999",
+          "address": {
+            "zipCode": "12345-789",
+            "state": "PR",
+            "city": "kahjsdjklh",
+            "street": "alskdja",
+            "number": "111",
+            "complement": "",
+            "reference": ""
+          }
+        }
+      ],
+      "id": 2
+    },
+    {
+      "name": "Ekajsdl",
+      "description": "",
+      "contacts": [
+        {
+          "name": "alksjdlas",
+          "phoneNumber": "(42) 99999-9999",
+          "address": {
+            "zipCode": "12345-789",
+            "state": "PR",
+            "city": "kahjsdjklh",
+            "street": "alskdja",
+            "number": "111",
+            "complement": "",
+            "reference": ""
+          }
+        }
+      ],
+      "id": 3
+    },
+    {
+      "name": "lasdask",
+      "description": "",
+      "contacts": [
+        {
+          "name": "asdasdas",
+          "phoneNumber": "(42) 99999-9999",
+          "address": {
+            "zipCode": "11111-111",
+            "state": "PR",
+            "city": "asdasdas",
+            "street": "asdasdasd",
+            "number": "123",
+            "complement": "",
+            "reference": ""
+          }
+        }
+      ],
+      "id": 4
+    }
+  ]
+}

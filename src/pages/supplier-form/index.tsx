@@ -1,7 +1,7 @@
 import { Main } from '@/components/main/styles'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useFieldArray, useForm } from 'react-hook-form'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import {
   InputContainer,
   Form,
@@ -17,6 +17,9 @@ import {
 } from './styles'
 import { FormData, formSchema } from '@/schemas/supplier-form-schema'
 import { Trash2 } from 'lucide-react'
+import { useMutation } from '@tanstack/react-query'
+import { createSupplier } from '@/http/create-supplier'
+import { toast } from 'sonner'
 
 interface SupplierFormProps {
   mode: 'new' | 'edit'
@@ -38,12 +41,14 @@ const contactsShape = {
 
 export function SupplierForm({ mode }: SupplierFormProps) {
   const { id } = useParams()
+  const navigate = useNavigate()
 
   const {
     register,
     control,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<FormData>({
     resolver: yupResolver(formSchema),
     defaultValues: {
@@ -58,8 +63,21 @@ export function SupplierForm({ mode }: SupplierFormProps) {
     name: 'contacts',
   })
 
-  function onSubmit(data: FormData) {
-    console.log(data)
+  const { mutateAsync: handleCreateSupplier } = useMutation({
+    mutationFn: createSupplier,
+    onSuccess() {
+      toast.success('Fornecedor criado com sucesso')
+
+      reset()
+      navigate('/')
+    },
+    onError() {
+      toast('Erro ao criar o fornecedor')
+    },
+  })
+
+  async function onSubmit(data: FormData) {
+    await handleCreateSupplier(data)
   }
 
   const isEditSupplierPage = mode === 'edit' && id
