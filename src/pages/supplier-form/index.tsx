@@ -2,60 +2,8 @@ import { Main } from '@/components/main/styles'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useFieldArray, useForm } from 'react-hook-form'
 import { useParams } from 'react-router-dom'
-import * as yup from 'yup'
 import { Form } from './styles'
-
-const contactSchema = yup.object({
-  name: yup
-    .string()
-    .required('Nome é obrigatório')
-    .matches(/^[A-Za-z ]+$/, 'Nome deve conter apenas letras'),
-  phoneNumber: yup
-    .string()
-    .required('Número de telefone é obrigatório')
-    .matches(
-      /^\(\d{2}\) \d{4,5}-\d{4}$/,
-      'Formato inválido para número de telefone (Ex: (11) 12345-6789)',
-    ),
-  address: yup.object({
-    zipCode: yup
-      .string()
-      .required('CEP é obrigatório')
-      .matches(/^\d{5}-\d{3}$/, 'Formato inválido para CEP (Ex: 12345-678)'),
-    state: yup
-      .string()
-      .required('Estado é obrigatório')
-      .length(2, 'Estado deve ter 2 caracteres')
-      .uppercase(),
-    city: yup
-      .string()
-      .required('Cidade é obrigatória')
-      .matches(/^[A-Za-z ]+$/, 'Cidade deve conter apenas letras'),
-    street: yup.string().required('Logradouro é obrigatório'),
-    number: yup
-      .number()
-      .required('Número é obrigatório')
-      .typeError('Número deve ser numérico'),
-    reference: yup.string().optional(),
-  }),
-})
-
-const formSchema = yup.object({
-  name: yup
-    .string()
-    .required('Nome é obrigatório')
-    .matches(
-      /^[A-Za-z0-9 ]+$/,
-      'Nome deve conter apenas caracteres alfanuméricos',
-    ),
-  description: yup.string().optional(),
-  contacts: yup
-    .array(contactSchema)
-    .min(1, 'Ao menos um contato é obrigatório')
-    .required('A lista de contatos é obrigatória'),
-})
-
-type FormData = yup.Asserts<typeof formSchema>
+import { FormData, formSchema } from '@/schemas/supplier-form-schema'
 
 interface SupplierFormProps {
   mode: 'new' | 'edit'
@@ -69,7 +17,7 @@ const contactsShape = {
     state: '',
     city: '',
     street: '',
-    number: 0,
+    number: '',
     reference: '',
   },
 }
@@ -99,8 +47,6 @@ export function SupplierForm({ mode }: SupplierFormProps) {
   function onSubmit(data: FormData) {
     console.log(data)
   }
-
-  console.log(errors)
 
   const isEditSupplierPage = mode === 'edit' && id
   return (
@@ -195,9 +141,7 @@ export function SupplierForm({ mode }: SupplierFormProps) {
               </label>
               <input
                 type="text"
-                {...register(`contacts.${index}.address.number`, {
-                  valueAsNumber: true,
-                })}
+                {...register(`contacts.${index}.address.number`)}
               />
               {errors.contacts?.[index]?.address?.number && (
                 <p>{errors.contacts[index].address.number.message}</p>
