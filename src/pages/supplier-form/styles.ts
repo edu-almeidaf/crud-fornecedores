@@ -3,6 +3,9 @@ import styled from 'styled-components'
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
   gap: 2rem;
 
   h2 {
@@ -39,14 +42,17 @@ export const Label = styled.label`
   }
 `
 
-export const Input = styled.input`
-  border: 1px solid ${({ theme }) => theme.colors.gray.dark};
+export const Input = styled.input<{ $hasError?: boolean }>`
+  border: 1px solid
+    ${({ theme, $hasError }) =>
+      $hasError ? theme.colors.danger : theme.colors.gray.dark};
   padding: 1rem;
   border-radius: ${({ theme }) => theme.radius.md};
   outline: 0;
 
   &:focus {
-    border-color: ${({ theme }) => theme.colors.primary.default};
+    border-color: ${({ theme, $hasError }) =>
+      $hasError ? theme.colors.danger : theme.colors.primary.default};
   }
 `
 
@@ -95,9 +101,51 @@ export const ContactHeader = styled.div`
 export const ContactInputs = styled.div`
   display: grid;
   grid-template-columns: 1fr;
+  gap: 2rem;
 
   @media (min-width: 1024px) {
     grid-template-columns: repeat(2, 1fr);
-    gap: 1rem 2rem;
+    gap: 2rem;
+  }
+`
+
+export const AddContactButton = styled.button`
+  padding: 0.5rem;
+  border-radius: ${({ theme }) => theme.radius.md};
+  background-color: transparent;
+  cursor: pointer;
+  border: 1px solid ${({ theme }) => theme.colors.primary.default};
+  color: ${({ theme }) => theme.colors.primary.default};
+  transition: background-color 0.2s;
+  transition: color 0.2s;
+
+  &:hover,
+  &:focus {
+    color: ${({ theme }) => theme.colors.white};
+    background-color: ${({ theme }) => theme.colors.primary.default};
+    outline: 0;
+  }
+
+  @media (min-width: 1024px) {
+    width: 25%;
+    align-self: center;
+  }
+`
+
+export const CreateSupplierBtn = styled.button`
+  padding: 0.5rem;
+  border-radius: ${({ theme }) => theme.radius.md};
+  background-color: ${({ theme }) => theme.colors.orange.default};
+  border: none;
+  cursor: pointer;
+  color: ${({ theme }) => theme.colors.white};
+  transition: background-color 0.2s;
+  transition: color 0.2s;
+
+  @media (min-width: 1024px) {
+    width: 50%;
+    padding: 1rem;
+    font-size: 1.125rem;
+    align-self: center;
   }
 `

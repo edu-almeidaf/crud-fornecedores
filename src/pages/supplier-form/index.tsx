@@ -11,6 +11,8 @@ import {
   ContactHeader,
   ErrorMessage,
   ContactInputs,
+  AddContactButton,
+  CreateSupplierBtn,
 } from './styles'
 import { FormData, formSchema } from '@/schemas/supplier-form-schema'
 import { Trash2 } from 'lucide-react'
@@ -69,7 +71,7 @@ export function SupplierForm({ mode }: SupplierFormProps) {
           <Label htmlFor="name">
             Nome <span>*</span>
           </Label>
-          <Input {...register('name')} />
+          <Input {...register('name')} $hasError={!!errors.name} />
           {errors.name && <ErrorMessage>{errors.name.message}</ErrorMessage>}
         </InputContainer>
 
@@ -97,7 +99,11 @@ export function SupplierForm({ mode }: SupplierFormProps) {
                 <Label htmlFor={`contacts.${index}.name`}>
                   Nome <span>*</span>
                 </Label>
-                <Input type="text" {...register(`contacts.${index}.name`)} />
+                <Input
+                  type="text"
+                  {...register(`contacts.${index}.name`)}
+                  $hasError={!!errors.contacts?.[index]?.name}
+                />
                 {errors.contacts?.[index]?.name && (
                   <ErrorMessage>
                     {errors.contacts[index].name.message}
@@ -112,6 +118,7 @@ export function SupplierForm({ mode }: SupplierFormProps) {
                 <Input
                   type="text"
                   {...register(`contacts.${index}.phoneNumber`)}
+                  $hasError={!!errors.contacts?.[index]?.phoneNumber}
                 />
                 {errors.contacts?.[index]?.phoneNumber && (
                   <ErrorMessage>
@@ -127,6 +134,7 @@ export function SupplierForm({ mode }: SupplierFormProps) {
                 <Input
                   type="text"
                   {...register(`contacts.${index}.address.zipCode`)}
+                  $hasError={!!errors.contacts?.[index]?.address?.zipCode}
                 />
                 {errors.contacts?.[index]?.address?.zipCode && (
                   <ErrorMessage>
@@ -137,11 +145,12 @@ export function SupplierForm({ mode }: SupplierFormProps) {
 
               <InputContainer>
                 <Label htmlFor={`contacts.${index}.address.state`}>
-                  Estado <span>*</span>
+                  UF <span>*</span>
                 </Label>
                 <Input
                   type="text"
                   {...register(`contacts.${index}.address.state`)}
+                  $hasError={!!errors.contacts?.[index]?.address?.state}
                 />
                 {errors.contacts?.[index]?.address?.state && (
                   <ErrorMessage>
@@ -157,6 +166,7 @@ export function SupplierForm({ mode }: SupplierFormProps) {
                 <Input
                   type="text"
                   {...register(`contacts.${index}.address.city`)}
+                  $hasError={!!errors.contacts?.[index]?.address?.city}
                 />
                 {errors.contacts?.[index]?.address?.city && (
                   <ErrorMessage>
@@ -167,11 +177,12 @@ export function SupplierForm({ mode }: SupplierFormProps) {
 
               <InputContainer>
                 <Label htmlFor={`contacts.${index}.address.street`}>
-                  Logradouro <span>*</span>
+                  Endereço <span>*</span>
                 </Label>
                 <Input
                   type="text"
                   {...register(`contacts.${index}.address.street`)}
+                  $hasError={!!errors.contacts?.[index]?.address?.street}
                 />
                 {errors.contacts?.[index]?.address?.street && (
                   <ErrorMessage>
@@ -187,6 +198,7 @@ export function SupplierForm({ mode }: SupplierFormProps) {
                 <Input
                   type="text"
                   {...register(`contacts.${index}.address.number`)}
+                  $hasError={!!errors.contacts?.[index]?.address?.number}
                 />
                 {errors.contacts?.[index]?.address?.number && (
                   <ErrorMessage>
@@ -218,13 +230,13 @@ export function SupplierForm({ mode }: SupplierFormProps) {
           </ContactForm>
         ))}
 
-        <button type="button" onClick={() => append(contactsShape)}>
-          Adicionar mais contatos
-        </button>
+        <AddContactButton type="button" onClick={() => append(contactsShape)}>
+          Adicionar contato
+        </AddContactButton>
 
         {errors.contacts && <p>{errors.contacts.message}</p>}
 
-        <button type="submit">Enviar</button>
+        <CreateSupplierBtn type="submit">Criar</CreateSupplierBtn>
       </Form>
     </Main>
   )

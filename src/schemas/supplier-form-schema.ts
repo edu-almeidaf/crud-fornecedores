@@ -22,8 +22,8 @@ export const contactSchema = yup.object({
       .matches(/^\d{5}-\d{3}$/, 'Formato inválido para o CEP (Ex: 12345-678)'),
     state: yup
       .string()
-      .required('O estado é obrigatório')
-      .length(2, 'O estado deve ter 2 caracteres')
+      .required('O UF é obrigatório')
+      .length(2, 'O UF deve ter 2 caracteres')
       .uppercase(),
     city: yup
       .string()
