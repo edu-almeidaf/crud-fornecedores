@@ -1,7 +1,8 @@
 // import { EmptyList } from './components/empty-list'
+import { Main } from '@/components/main/styles'
 import { Card } from './components/card'
 import { FilterSupplier } from './components/filter-supplier'
-import { Main, SuppliersList, AddSupplierButton } from './styles'
+import { SuppliersList, AddSupplierButton } from './styles'
 
 export function Home() {
   return (

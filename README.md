@@ -54,3 +54,8 @@ interface Endereco {
 ## Tentarei adicionar se houver tempo:
 [ ] - Testes
 [ ] - Backend próprio
+
+## Detalhes extras
+[ ] - Inserir ícone de search no input de filtragem pelo nome
+[ ] - Inserir paginação na lista de fornecedores
+[ ] - Inserir ícone de logout futuramente no header
