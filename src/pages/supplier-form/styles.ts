@@ -56,6 +56,19 @@ export const Input = styled.input<{ $hasError?: boolean }>`
   }
 `
 
+export const Textarea = styled.textarea`
+  padding: 1rem;
+  border-radius: ${({ theme }) => theme.radius.md};
+  outline: 0;
+  height: 6rem;
+  line-height: 1.6;
+  resize: none;
+
+  &:focus {
+    border-color: ${({ theme }) => theme.colors.primary.default};
+  }
+`
+
 export const ErrorMessage = styled.p`
   color: ${({ theme }) => theme.colors.danger};
   font-size: 0.875rem;

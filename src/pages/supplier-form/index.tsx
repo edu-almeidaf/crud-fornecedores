@@ -13,6 +13,7 @@ import {
   ContactInputs,
   AddContactButton,
   CreateSupplierBtn,
+  Textarea,
 } from './styles'
 import { FormData, formSchema } from '@/schemas/supplier-form-schema'
 import { Trash2 } from 'lucide-react'
@@ -77,7 +78,7 @@ export function SupplierForm({ mode }: SupplierFormProps) {
 
         <InputContainer>
           <Label htmlFor="name">Descrição</Label>
-          <Input {...register('description')} />
+          <Textarea {...register('description')} />
         </InputContainer>
 
         <h2>Contatos</h2>
