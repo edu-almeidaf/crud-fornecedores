@@ -42,6 +42,7 @@ export const contactSchema = yup.object({
           return upperValue === 'S/N' || /^[0-9]+$/.test(upperValue || '')
         },
       ),
+    complement: yup.string().optional(),
     reference: yup.string().optional(),
   }),
 })
