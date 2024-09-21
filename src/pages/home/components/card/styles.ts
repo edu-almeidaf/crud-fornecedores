@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 export const SupplierCard = styled.div`
@@ -10,42 +11,38 @@ export const SupplierCard = styled.div`
   border: 1px solid ${({ theme }) => theme.colors.gray.default};
   border-radius: ${({ theme }) => theme.radius.md};
   box-shadow: ${({ theme }) => theme.shadows.md};
+
+  h3 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.gray.default};
+  }
 `
 
-export const SupplierTitle = styled.h3`
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-`
-export const ActionContainer = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-`
-
-const Button = styled.button`
-  line-height: 0;
+export const ShowMoreBtn = styled(Link)`
+  text-decoration: none;
+  padding: 0.5rem;
+  border-radius: ${({ theme }) => theme.radius.md};
   background-color: transparent;
   border: none;
   cursor: pointer;
-`
+  border: 1px solid ${({ theme }) => theme.colors.primary.default};
+  color: ${({ theme }) => theme.colors.primary.default};
+  transition: background-color 0.2s;
+  transition: color 0.2s;
 
-export const SendWhatsappButton = styled(Button)`
-  color: ${({ theme }) => theme.colors.gray.dark};
-
-  &:hover {
-    color: ${({ theme }) => theme.colors.whatsapp};
+  &:hover,
+  &:focus {
+    color: ${({ theme }) => theme.colors.white};
+    background-color: ${({ theme }) => theme.colors.primary.default};
+    outline: 0;
   }
-`
 
-export const EditButton = styled(Button)`
-  &:hover {
-    color: ${({ theme }) => theme.colors.primary.default};
-  }
-`
-
-export const DeleteButton = styled(Button)`
-  &:hover {
-    color: ${({ theme }) => theme.colors.danger};
+  @media (min-width: 1024px) {
+    padding: 0.5rem 3rem;
   }
 `

@@ -1,12 +1,4 @@
-import { MessageCircle, PencilLine, Trash2 } from 'lucide-react'
-import {
-  ActionContainer,
-  DeleteButton,
-  EditButton,
-  SendWhatsappButton,
-  SupplierCard,
-  SupplierTitle,
-} from './styles'
+import { ShowMoreBtn, SupplierCard } from './styles'
 
 interface CardProps {
   name: string
@@ -15,25 +7,8 @@ interface CardProps {
 export function Card({ name }: CardProps) {
   return (
     <SupplierCard>
-      <SupplierTitle>{name}</SupplierTitle>
-      <ActionContainer>
-        <SendWhatsappButton
-          as="a"
-          href="https://wa.me/5542999402705"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <MessageCircle />
-        </SendWhatsappButton>
-
-        <EditButton>
-          <PencilLine />
-        </EditButton>
-
-        <DeleteButton>
-          <Trash2 />
-        </DeleteButton>
-      </ActionContainer>
+      <h3>{name}</h3>
+      <ShowMoreBtn to="/1">Detalhes</ShowMoreBtn>
     </SupplierCard>
   )
 }
