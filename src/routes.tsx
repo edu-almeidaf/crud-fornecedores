@@ -22,7 +22,7 @@ export const router = createBrowserRouter([
         element: <SupplierForm mode="new" />,
       },
       {
-        path: '/edit/:id',
+        path: '/:id/edit',
         element: <SupplierForm mode="edit" />,
       },
     ],

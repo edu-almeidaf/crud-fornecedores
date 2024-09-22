@@ -1,4 +1,4 @@
-import { Main } from '@/components/main/styles'
+import { Main, PageTitle } from '@/components/main/styles'
 import { SuppliersList } from './components/suppliers-list'
 import { FilterSupplier } from './components/filter-supplier'
 import { SuppliersSection, AddSupplierButton } from './styles'
@@ -6,7 +6,7 @@ import { SuppliersSection, AddSupplierButton } from './styles'
 export function Home() {
   return (
     <Main>
-      <h1>Fornecedores</h1>
+      <PageTitle>Fornecedores</PageTitle>
 
       <AddSupplierButton to="/new">Novo Fornecedor</AddSupplierButton>
 

@@ -1,4 +1,4 @@
-import { Main } from '@/components/main/styles'
+import { Main, PageHeader, PageTitle } from '@/components/main/styles'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useFieldArray, useForm } from 'react-hook-form'
 import { useNavigate, useParams } from 'react-router-dom'
@@ -21,6 +21,7 @@ import { useMutation } from '@tanstack/react-query'
 import { createSupplier } from '@/http/create-supplier'
 import { toast } from 'react-hot-toast'
 import { Spinner } from '@/components/spinner'
+import { BackButtonComponent } from '@/components/back-button'
 
 interface SupplierFormProps {
   mode: 'new' | 'edit'
@@ -84,7 +85,12 @@ export function SupplierForm({ mode }: SupplierFormProps) {
   const isEditSupplierPage = mode === 'edit' && id
   return (
     <Main>
-      <h1>{isEditSupplierPage ? 'Editar Fornecedor' : 'Novo Fornecedor'}</h1>
+      <PageHeader>
+        <BackButtonComponent url={isEditSupplierPage ? `/${id}` : '/'} />
+        <PageTitle>
+          {isEditSupplierPage ? 'Editar Fornecedor' : 'Novo Fornecedor'}
+        </PageTitle>
+      </PageHeader>
 
       <Form onSubmit={handleSubmit(onSubmit)}>
         <InputContainer>

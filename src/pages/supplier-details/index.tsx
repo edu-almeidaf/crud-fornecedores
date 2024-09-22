@@ -1,8 +1,9 @@
-import { Main } from '@/components/main/styles'
+import { Main, PageHeader, PageTitle } from '@/components/main/styles'
 import { getSupplierDetails } from '@/http/get-supplier-details'
 import { useQuery } from '@tanstack/react-query'
 import { useParams } from 'react-router-dom'
 import { ContactCard, ContactList, SupplierDetailsContainer } from './styles'
+import { BackButtonComponent } from '@/components/back-button'
 
 interface Address {
   street: string
@@ -27,7 +28,11 @@ export function SupplierDetails() {
 
   return (
     <Main>
-      <h1>Detalhes do Fornecedor</h1>
+      <PageHeader>
+        <BackButtonComponent url="/" />
+
+        <PageTitle>Detalhes do Fornecedor</PageTitle>
+      </PageHeader>
 
       <SupplierDetailsContainer>
         <p>
