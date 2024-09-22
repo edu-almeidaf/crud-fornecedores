@@ -46,3 +46,21 @@ export const ShowMoreBtn = styled(Link)`
     padding: 0.5rem 3rem;
   }
 `
+
+export const ErrorContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+
+  svg {
+    color: ${({ theme }) => theme.colors.danger};
+    width: 3rem;
+    height: 3rem;
+  }
+
+  h2 {
+    text-align: center;
+  }
+`

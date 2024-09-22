@@ -1,7 +1,9 @@
 import { getSuppliers } from '@/http/get-suppliers'
 import { useQuery } from '@tanstack/react-query'
 import { EmptyList } from '../empty-list'
-import { ShowMoreBtn, SupplierCard } from './styles'
+import { ErrorContent, ShowMoreBtn, SupplierCard } from './styles'
+import Skeleton from 'react-loading-skeleton'
+import { CircleX } from 'lucide-react'
 
 export function SuppliersList() {
   const {
@@ -14,11 +16,20 @@ export function SuppliersList() {
   })
 
   if (isLoading) {
-    return <div>Carregando...</div>
+    return (
+      <div>
+        <Skeleton count={5} height={70} style={{ marginBottom: '0.5rem' }} />
+      </div>
+    )
   }
 
   if (isError) {
-    return <h1>Erro ao buscar os Fornecedores</h1>
+    return (
+      <ErrorContent>
+        <CircleX />
+        <h2>Erro ao buscar os Fornecedores</h2>
+      </ErrorContent>
+    )
   }
 
   return (

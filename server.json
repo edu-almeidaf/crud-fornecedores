@@ -32,6 +32,39 @@
         }
       ],
       "id": 1
+    },
+    {
+      "name": "Eduardo",
+      "description": "Teste",
+      "contacts": [
+        {
+          "name": "Eduardo",
+          "phoneNumber": "(42) 99940-2705",
+          "address": {
+            "zipCode": "85070-190",
+            "state": "PR",
+            "city": "Guarapuava",
+            "street": "Rua Pedro Siqueira",
+            "number": "352",
+            "complement": "Casa",
+            "reference": ""
+          }
+        },
+        {
+          "name": "Maria",
+          "phoneNumber": "(42) 99999-9999",
+          "address": {
+            "zipCode": "85080-184",
+            "state": "PR",
+            "city": "Guarapuava",
+            "street": "Rua guaira",
+            "number": "2121",
+            "complement": "",
+            "reference": "Posto Shell"
+          }
+        }
+      ],
+      "id": 2
     }
   ]
 }
