@@ -1,6 +1,6 @@
 import { api } from '@/lib/axios'
 
-interface GetSuppliersResponse {
+export interface Supplier {
   id: number
   name: string
   description: string
@@ -20,7 +20,7 @@ interface GetSuppliersResponse {
 }
 
 export async function getSuppliers() {
-  const response = await api.get<GetSuppliersResponse[]>('/suppliers')
+  const response = await api.get<Supplier[]>('/suppliers')
 
   return response.data
 }
