@@ -23,57 +23,6 @@ export const Form = styled.form`
   }
 `
 
-export const InputContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-`
-
-export const Label = styled.label`
-  font-size: 1.125rem;
-  font-weight: 500;
-
-  span:first-child {
-    color: ${({ theme }) => theme.colors.danger};
-  }
-
-  span:last-child {
-    font-size: 0.875rem;
-  }
-`
-
-export const Input = styled.input<{ $hasError?: boolean }>`
-  border: 1px solid
-    ${({ theme, $hasError }) =>
-      $hasError ? theme.colors.danger : theme.colors.gray.dark};
-  padding: 1rem;
-  border-radius: ${({ theme }) => theme.radius.md};
-  outline: 0;
-
-  &:focus {
-    border-color: ${({ theme, $hasError }) =>
-      $hasError ? theme.colors.danger : theme.colors.primary.default};
-  }
-`
-
-export const Textarea = styled.textarea`
-  padding: 1rem;
-  border-radius: ${({ theme }) => theme.radius.md};
-  outline: 0;
-  height: 6rem;
-  line-height: 1.6;
-  resize: none;
-
-  &:focus {
-    border-color: ${({ theme }) => theme.colors.primary.default};
-  }
-`
-
-export const ErrorMessage = styled.p`
-  color: ${({ theme }) => theme.colors.danger};
-  font-size: 0.875rem;
-`
-
 export const ContactForm = styled.section`
   display: flex;
   flex-direction: column;

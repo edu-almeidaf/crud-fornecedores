@@ -85,6 +85,26 @@
         }
       ],
       "id": 3
+    },
+    {
+      "name": "Eduardo & Cia LTDA.",
+      "description": "Uma descrição legal",
+      "contacts": [
+        {
+          "name": "João",
+          "phoneNumber": "(42) 99999-9999",
+          "address": {
+            "zipCode": "85070-190",
+            "state": "PR",
+            "city": "Sao Paulo",
+            "street": "Rua São José",
+            "number": "123",
+            "complement": "Casa",
+            "reference": "Perto de você sabe quem"
+          }
+        }
+      ],
+      "id": 4
     }
   ]
 }
