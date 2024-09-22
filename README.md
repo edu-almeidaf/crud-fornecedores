@@ -6,7 +6,7 @@
 [ ] - Deve ser possível excluir um fornecedor
 [ ] - Ao executar qualquer ação, deve ter uma mensagem de sucesso ou falha
 [x] - A lista de fornecedores deve ter um campo de filtro por nome
-[ ] - Deve ter um campo de CEP para preencher as informações de endereço ao criar ou editar fornecedores.
+[x] - Deve ter um campo de CEP para preencher as informações de endereço ao criar ou editar fornecedores.
 
 ## Requisitos técnicos
 

@@ -16,13 +16,15 @@ import {
   formSchema,
 } from '@/schemas/supplier-form-schema'
 import { Trash2 } from 'lucide-react'
-import { useMutation } from '@tanstack/react-query'
+import { useMutation, useQuery } from '@tanstack/react-query'
 import { createSupplier } from '@/http/create-supplier'
 import { toast } from 'react-hot-toast'
 import { Spinner } from '@/components/spinner'
 import { BackButtonComponent } from '@/components/back-button'
 import { Input, Textarea } from './components/form'
 import { useHookFormMask } from 'use-mask-input'
+import { useEffect, useState } from 'react'
+import { fetchAddressByCep } from '@/http/fetch-address-by-cep'
 
 interface SupplierFormProps {
   mode: 'new' | 'edit'
@@ -36,6 +38,9 @@ export function SupplierForm({ mode }: SupplierFormProps) {
     register,
     control,
     handleSubmit,
+    watch,
+    clearErrors,
+    setError,
     formState: { errors },
     reset,
   } = useForm<FormData>({
@@ -54,6 +59,62 @@ export function SupplierForm({ mode }: SupplierFormProps) {
     control,
     name: 'contacts',
   })
+
+  const [editingIndex, setEditingIndex] = useState<number | null>(null)
+
+  function normalizeCep(cep: string | undefined) {
+    return cep?.replace(/\D/g, '') || ''
+  }
+
+  const currentZipCode =
+    editingIndex !== null
+      ? normalizeCep(watch(`contacts.${editingIndex}.address.zipCode`))
+      : undefined
+
+  console.log(currentZipCode)
+
+  const { data: addressInfo, isError } = useQuery({
+    queryKey: ['fetchAddressByZipCode', currentZipCode],
+    queryFn: () => fetchAddressByCep(currentZipCode as string),
+    enabled: !!currentZipCode && currentZipCode.length === 8,
+    retry: false,
+  })
+
+  useEffect(() => {
+    if (addressInfo && editingIndex !== null) {
+      clearErrors(`contacts.${editingIndex}.address.zipCode`)
+
+      reset((formData) => ({
+        ...formData,
+        contacts: formData.contacts.map((contact, index) => {
+          if (editingIndex === index) {
+            return {
+              ...contact,
+              address: {
+                ...contact.address,
+                street: addressInfo.logradouro || '',
+                city: addressInfo.localidade,
+                state: addressInfo.uf,
+              },
+            }
+          }
+
+          return contact
+        }),
+      }))
+    }
+
+    if (isError && editingIndex !== null) {
+      setError(`contacts.${editingIndex}.address.zipCode`, {
+        type: 'manual',
+        message: 'CEP inválido. Por favor, verifique.',
+      })
+    }
+  }, [addressInfo, editingIndex, clearErrors, reset, isError, setError])
+
+  function handleZipCodeFocus(index: number) {
+    setEditingIndex(index)
+  }
 
   const { mutateAsync: handleCreateSupplier, isPending } = useMutation({
     mutationFn: createSupplier,
@@ -130,6 +191,7 @@ export function SupplierForm({ mode }: SupplierFormProps) {
                   '99999-999',
                 ])}
                 error={errors.contacts?.[index]?.address?.zipCode}
+                onFocus={() => handleZipCodeFocus(index)}
                 required
               />
 
