@@ -1,24 +1,24 @@
 ## Requisitos funcionais
 
-[ ] - Deve ser possível listar fornecedores
-[ ] - Deve ser possível criar um fornecedor
+[x] - Deve ser possível listar fornecedores
+[x] - Deve ser possível criar um fornecedor
 [ ] - Deve ser possível editar um fornecedor
 [ ] - Deve ser possível excluir um fornecedor
 [ ] - Ao executar qualquer ação, deve ter uma mensagem de sucesso ou falha
-[ ] - A lista de fornecedores deve ter um campo de filtro por nome
+[x] - A lista de fornecedores deve ter um campo de filtro por nome
 [ ] - Deve ter um campo de CEP para preencher as informações de endereço ao criar ou editar fornecedores.
 
 ## Requisitos técnicos
 
-[ ] - Utilizar React com Typescript
-[ ] - Utilizar Styled-components
-[ ] - Utilizar identidade visual da vexpenses
-[ ] - Aplicação responsiva (Desktop e mobile)
+[x] - Utilizar React com Typescript
+[x] - Utilizar Styled-components
+[x] - Utilizar identidade visual da vexpenses
+[x] - Aplicação responsiva (Desktop e mobile)
 [ ] - Utilizar a API viacep
-[ ] - Usar React Hook Form com Yup
-[ ] - Usar eslint com prettier
-[ ] - Usar json server
-[ ] - Usar axios
+[x] - Usar React Hook Form com Yup
+[x] - Usar eslint com prettier
+[x] - Usar json server
+[x] - Usar axios
 
 Interface de Fornecedor:
 ```typescript
@@ -50,6 +50,7 @@ interface Endereco {
 [ ] - Abrir contato do fornecedor no whatsapp
 [ ] - Método de autenticação
 [ ] - Integrar localização do fornecedor com Google Maps
+[ ] - Página de not found
 
 ## Tentarei adicionar se houver tempo:
 [ ] - Testes

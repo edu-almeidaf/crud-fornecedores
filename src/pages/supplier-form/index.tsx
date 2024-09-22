@@ -19,7 +19,7 @@ import { FormData, formSchema } from '@/schemas/supplier-form-schema'
 import { Trash2 } from 'lucide-react'
 import { useMutation } from '@tanstack/react-query'
 import { createSupplier } from '@/http/create-supplier'
-import { toast } from 'sonner'
+import { toast } from 'react-hot-toast'
 
 interface SupplierFormProps {
   mode: 'new' | 'edit'

@@ -22,7 +22,7 @@ export const AddSupplierButton = styled(Link)`
   }
 `
 
-export const SuppliersList = styled.section`
+export const SuppliersSection = styled.section`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
