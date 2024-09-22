@@ -65,6 +65,26 @@
         }
       ],
       "id": 2
+    },
+    {
+      "name": "adqasdasd",
+      "description": "",
+      "contacts": [
+        {
+          "name": "asdasdasda",
+          "phoneNumber": "(42) 99999-9999",
+          "address": {
+            "zipCode": "12312-123",
+            "state": "PR",
+            "city": "asdasdasd",
+            "street": "asdasdasd",
+            "number": "123",
+            "complement": "",
+            "reference": ""
+          }
+        }
+      ],
+      "id": 3
     }
   ]
 }

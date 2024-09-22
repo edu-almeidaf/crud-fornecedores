@@ -20,6 +20,7 @@ import { Trash2 } from 'lucide-react'
 import { useMutation } from '@tanstack/react-query'
 import { createSupplier } from '@/http/create-supplier'
 import { toast } from 'react-hot-toast'
+import { Spinner } from '@/components/spinner'
 
 interface SupplierFormProps {
   mode: 'new' | 'edit'
@@ -63,16 +64,16 @@ export function SupplierForm({ mode }: SupplierFormProps) {
     name: 'contacts',
   })
 
-  const { mutateAsync: handleCreateSupplier } = useMutation({
+  const { mutateAsync: handleCreateSupplier, isPending } = useMutation({
     mutationFn: createSupplier,
     onSuccess() {
       toast.success('Fornecedor criado com sucesso')
 
-      reset()
       navigate('/')
+      reset()
     },
     onError() {
-      toast('Erro ao criar o fornecedor')
+      toast.error('Erro ao criar o fornecedor, tente novamente mais tarde')
     },
   })
 
@@ -255,7 +256,9 @@ export function SupplierForm({ mode }: SupplierFormProps) {
 
         {errors.contacts && <p>{errors.contacts.message}</p>}
 
-        <CreateSupplierBtn type="submit">Criar</CreateSupplierBtn>
+        <CreateSupplierBtn type="submit">
+          {isPending ? <Spinner /> : 'Criar'}
+        </CreateSupplierBtn>
       </Form>
     </Main>
   )
