@@ -1,6 +1,4 @@
 import { Main, PageHeader, PageTitle } from '@/components/main/styles'
-import { yupResolver } from '@hookform/resolvers/yup'
-import { useFieldArray, useForm } from 'react-hook-form'
 import { useNavigate, useParams } from 'react-router-dom'
 import {
   Form,
@@ -13,11 +11,9 @@ import {
 import {
   contactsInitialFormState,
   FormData,
-  formSchema,
 } from '@/schemas/supplier-form-schema'
 import { Trash2 } from 'lucide-react'
-import { useMutation, useQuery } from '@tanstack/react-query'
-import { createSupplier } from '@/http/create-supplier'
+import { useQuery } from '@tanstack/react-query'
 import { toast } from 'react-hot-toast'
 import { Spinner } from '@/components/spinner'
 import { BackButtonComponent } from '@/components/back-button'
@@ -25,6 +21,8 @@ import { Input, Textarea } from './components/form'
 import { useHookFormMask } from 'use-mask-input'
 import { useEffect, useState } from 'react'
 import { fetchAddressByCep } from '@/http/fetch-address-by-cep'
+import { useCreateSupplier } from '@/hooks/useCreateSupplier'
+import { useSupplierForm } from '@/hooks/useSupplierForm'
 
 interface SupplierFormProps {
   mode: 'new' | 'edit'
@@ -33,32 +31,21 @@ interface SupplierFormProps {
 export function SupplierForm({ mode }: SupplierFormProps) {
   const { id } = useParams()
   const navigate = useNavigate()
-
+  const { handleCreateSupplier, isPending } = useCreateSupplier()
   const {
-    register,
-    control,
-    handleSubmit,
-    watch,
+    append,
     clearErrors,
-    setError,
-    formState: { errors },
+    errors,
+    fields,
+    handleSubmit,
+    register,
+    remove,
     reset,
-  } = useForm<FormData>({
-    mode: 'onBlur',
-    resolver: yupResolver(formSchema),
-    defaultValues: {
-      name: '',
-      description: '',
-      contacts: [contactsInitialFormState],
-    },
-  })
+    setError,
+    watch,
+  } = useSupplierForm()
 
   const registerWithMask = useHookFormMask(register)
-
-  const { fields, append, remove } = useFieldArray({
-    control,
-    name: 'contacts',
-  })
 
   const [editingIndex, setEditingIndex] = useState<number | null>(null)
 
@@ -70,8 +57,6 @@ export function SupplierForm({ mode }: SupplierFormProps) {
     editingIndex !== null
       ? normalizeCep(watch(`contacts.${editingIndex}.address.zipCode`))
       : undefined
-
-  console.log(currentZipCode)
 
   const { data: addressInfo, isError } = useQuery({
     queryKey: ['fetchAddressByZipCode', currentZipCode],
@@ -116,21 +101,16 @@ export function SupplierForm({ mode }: SupplierFormProps) {
     setEditingIndex(index)
   }
 
-  const { mutateAsync: handleCreateSupplier, isPending } = useMutation({
-    mutationFn: createSupplier,
-    onSuccess() {
-      toast.success('Fornecedor criado com sucesso')
+  async function onSubmit(data: FormData) {
+    try {
+      await handleCreateSupplier(data)
 
+      toast.success('Fornecedor criado com sucesso')
       navigate('/')
       reset()
-    },
-    onError() {
+    } catch {
       toast.error('Erro ao criar o fornecedor, tente novamente mais tarde')
-    },
-  })
-
-  async function onSubmit(data: FormData) {
-    await handleCreateSupplier(data)
+    }
   }
 
   const isEditSupplierPage = mode === 'edit' && id
@@ -245,7 +225,7 @@ export function SupplierForm({ mode }: SupplierFormProps) {
 
         {errors.contacts && <p>{errors.contacts.message}</p>}
 
-        <CreateSupplierBtn type="submit">
+        <CreateSupplierBtn type="submit" disabled={isPending}>
           {isPending ? <Spinner /> : 'Criar'}
         </CreateSupplierBtn>
       </Form>
