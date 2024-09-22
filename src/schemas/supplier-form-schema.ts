@@ -28,8 +28,14 @@ export const contactSchema = yup.object({
     city: yup
       .string()
       .required('A cidade é obrigatória')
-      .matches(/^[A-Za-z ]+$/, 'A cidade deve conter apenas letras'),
-    street: yup.string().required('O endereço é obrigatório'),
+      .matches(/^[A-Za-zÀ-ÖØ-öø-ÿçÇ '-]+$/, 'O nome da cidade é inválido'),
+    street: yup
+      .string()
+      .required('O endereço é obrigatório')
+      .matches(
+        /^[A-Za-zÀ-ÖØ-öø-ÿ0-9\s.,'ºª-]+$/,
+        'Formato inválido para o endereço',
+      ),
     number: yup
       .string()
       .required('O número é obrigatório')
@@ -63,3 +69,17 @@ export const formSchema = yup.object({
 })
 
 export type FormData = yup.Asserts<typeof formSchema>
+
+export const contactsInitialFormState = {
+  name: '',
+  phoneNumber: '',
+  address: {
+    zipCode: '',
+    state: '',
+    city: '',
+    street: '',
+    number: '',
+    complement: '',
+    reference: '',
+  },
+}

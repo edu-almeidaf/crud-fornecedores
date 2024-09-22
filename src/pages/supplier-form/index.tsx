@@ -10,7 +10,11 @@ import {
   AddContactButton,
   CreateSupplierBtn,
 } from './styles'
-import { FormData, formSchema } from '@/schemas/supplier-form-schema'
+import {
+  contactsInitialFormState,
+  FormData,
+  formSchema,
+} from '@/schemas/supplier-form-schema'
 import { Trash2 } from 'lucide-react'
 import { useMutation } from '@tanstack/react-query'
 import { createSupplier } from '@/http/create-supplier'
@@ -18,23 +22,10 @@ import { toast } from 'react-hot-toast'
 import { Spinner } from '@/components/spinner'
 import { BackButtonComponent } from '@/components/back-button'
 import { Input, Textarea } from './components/form'
+import { useHookFormMask } from 'use-mask-input'
 
 interface SupplierFormProps {
   mode: 'new' | 'edit'
-}
-
-const contactsShape = {
-  name: '',
-  phoneNumber: '',
-  address: {
-    zipCode: '',
-    state: '',
-    city: '',
-    street: '',
-    number: '',
-    complement: '',
-    reference: '',
-  },
 }
 
 export function SupplierForm({ mode }: SupplierFormProps) {
@@ -53,9 +44,11 @@ export function SupplierForm({ mode }: SupplierFormProps) {
     defaultValues: {
       name: '',
       description: '',
-      contacts: [contactsShape],
+      contacts: [contactsInitialFormState],
     },
   })
+
+  const registerWithMask = useHookFormMask(register)
 
   const { fields, append, remove } = useFieldArray({
     control,
@@ -124,21 +117,25 @@ export function SupplierForm({ mode }: SupplierFormProps) {
               <Input
                 label="Número de Telefone"
                 type="tel"
-                {...register(`contacts.${index}.phoneNumber`)}
+                {...registerWithMask(`contacts.${index}.phoneNumber`, [
+                  '(99) 99999-9999',
+                ])}
                 error={errors.contacts?.[index]?.phoneNumber}
                 required
               />
 
               <Input
                 label="CEP"
-                {...register(`contacts.${index}.address.zipCode`)}
+                {...registerWithMask(`contacts.${index}.address.zipCode`, [
+                  '99999-999',
+                ])}
                 error={errors.contacts?.[index]?.address?.zipCode}
                 required
               />
 
               <Input
                 label="UF"
-                {...register(`contacts.${index}.address.state`)}
+                {...registerWithMask(`contacts.${index}.address.state`, ['AA'])}
                 error={errors.contacts?.[index]?.address?.state}
                 required
               />
@@ -177,7 +174,10 @@ export function SupplierForm({ mode }: SupplierFormProps) {
           </ContactForm>
         ))}
 
-        <AddContactButton type="button" onClick={() => append(contactsShape)}>
+        <AddContactButton
+          type="button"
+          onClick={() => append(contactsInitialFormState)}
+        >
           Adicionar contato
         </AddContactButton>
 
