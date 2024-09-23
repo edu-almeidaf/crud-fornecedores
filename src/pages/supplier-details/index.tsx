@@ -2,7 +2,13 @@ import { Main, PageHeader, PageTitle } from '@/components/main/styles'
 import { getSupplierDetails } from '@/http/get-supplier-details'
 import { useQuery } from '@tanstack/react-query'
 import { useParams } from 'react-router-dom'
-import { ContactCard, ContactList, SupplierDetailsContainer } from './styles'
+import {
+  ContactCard,
+  ContactList,
+  DeleteProfileButton,
+  SupplierDetailsContainer,
+  UpdateProfileLink,
+} from './styles'
 import { BackButtonComponent } from '@/components/back-button'
 import { Address } from '@/interfaces/address'
 
@@ -74,6 +80,12 @@ export function SupplierDetails() {
             </ContactCard>
           ))}
         </ContactList>
+
+        <UpdateProfileLink to={`/${id}/edit`} aria-disabled>
+          Atualizar Contato
+        </UpdateProfileLink>
+
+        <DeleteProfileButton>Deletar Contato</DeleteProfileButton>
       </SupplierDetailsContainer>
     </Main>
   )

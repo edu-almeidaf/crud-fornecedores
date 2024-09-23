@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 export const SupplierDetailsContainer = styled.section`
@@ -53,5 +54,57 @@ export const ContactCard = styled.div`
 
   ul {
     padding: 0 2rem;
+  }
+`
+
+export const UpdateProfileLink = styled(Link)`
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.125rem;
+  padding: 1rem;
+  border-radius: ${({ theme }) => theme.radius.md};
+  border: 2px solid ${({ theme }) => theme.colors.orange.default};
+  color: ${({ theme }) => theme.colors.orange.default};
+  transition: background-color 0.2s;
+  transition: color 0.2s;
+
+  &:hover,
+  &:focus {
+    background-color: ${({ theme }) => theme.colors.orange.default};
+    color: ${({ theme }) => theme.colors.white};
+  }
+
+  @media (min-width: 1024px) {
+    align-self: center;
+    width: 50%;
+  }
+`
+
+export const DeleteProfileButton = styled.button`
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.125rem;
+  padding: 1rem;
+  border-radius: ${({ theme }) => theme.radius.md};
+  background-color: ${({ theme }) => theme.colors.white};
+  border: 2px solid ${({ theme }) => theme.colors.danger};
+  color: ${({ theme }) => theme.colors.danger};
+  transition: background-color 0.2s;
+  transition: color 0.2s;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    background-color: ${({ theme }) => theme.colors.danger};
+    color: ${({ theme }) => theme.colors.white};
+  }
+
+  @media (min-width: 1024px) {
+    align-self: center;
+    width: 50%;
   }
 `
