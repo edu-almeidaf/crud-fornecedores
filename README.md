@@ -14,7 +14,7 @@
 [x] - Utilizar Styled-components
 [x] - Utilizar identidade visual da vexpenses
 [x] - Aplicação responsiva (Desktop e mobile)
-[ ] - Utilizar a API viacep
+[x] - Utilizar a API viacep
 [x] - Usar React Hook Form com Yup
 [x] - Usar eslint com prettier
 [x] - Usar json server
@@ -50,6 +50,7 @@ interface Endereco {
 [ ] - Abrir contato do fornecedor no whatsapp
 [ ] - Método de autenticação
 [ ] - Integrar localização do fornecedor com Google Maps
+[ ] - Exportar contatos via CSV
 [ ] - Página de not found
 
 ## Tentarei adicionar se houver tempo:

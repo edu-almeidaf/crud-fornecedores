@@ -64,3 +64,16 @@ export const ErrorContent = styled.div`
     text-align: center;
   }
 `
+
+export const ExportCsvButton = styled.button`
+  padding: 0.5rem 1rem;
+  border-radius: ${({ theme }) => theme.radius.md};
+  background-color: ${({ theme }) => theme.colors.primary.dark};
+  color: ${({ theme }) => theme.colors.white};
+  border: none;
+  cursor: pointer;
+
+  @media (min-width: 1024px) {
+    align-self: end;
+  }
+`
