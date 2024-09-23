@@ -4,12 +4,7 @@ import { useQuery } from '@tanstack/react-query'
 import { useParams } from 'react-router-dom'
 import { ContactCard, ContactList, SupplierDetailsContainer } from './styles'
 import { BackButtonComponent } from '@/components/back-button'
-
-interface Address {
-  street: string
-  number: string
-  complement: string
-}
+import { Address } from '@/interfaces/address'
 
 export function SupplierDetails() {
   const { id } = useParams<{ id: string }>()

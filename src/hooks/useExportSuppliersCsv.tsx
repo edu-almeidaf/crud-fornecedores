@@ -1,7 +1,8 @@
 import { useState, useCallback } from 'react'
 import { unparse } from 'papaparse'
-import { Address, Supplier } from '@/http/get-suppliers'
 import toast from 'react-hot-toast'
+import { Address } from '@/interfaces/address'
+import { Supplier } from '@/interfaces/suplier'
 
 function formatAddress(address: Address) {
   return (
