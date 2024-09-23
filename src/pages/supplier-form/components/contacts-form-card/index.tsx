@@ -1,4 +1,4 @@
-import { Input } from '../form'
+import { Input } from '@/components/form'
 import { ContactInputs } from './styles'
 import { useHookFormMask } from 'use-mask-input'
 import { useEffect, useState } from 'react'

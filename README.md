@@ -2,9 +2,9 @@
 
 [x] - Deve ser possível listar fornecedores
 [x] - Deve ser possível criar um fornecedor
-[ ] - Deve ser possível editar um fornecedor
-[ ] - Deve ser possível excluir um fornecedor
-[ ] - Ao executar qualquer ação, deve ter uma mensagem de sucesso ou falha
+[x] - Deve ser possível editar um fornecedor
+[x] - Deve ser possível excluir um fornecedor
+[x] - Ao executar qualquer ação, deve ter uma mensagem de sucesso ou falha
 [x] - A lista de fornecedores deve ter um campo de filtro por nome
 [x] - Deve ter um campo de CEP para preencher as informações de endereço ao criar ou editar fornecedores.
 
@@ -50,7 +50,7 @@ interface Endereco {
 [ ] - Abrir contato do fornecedor no whatsapp
 [ ] - Método de autenticação
 [ ] - Integrar localização do fornecedor com Google Maps
-[ ] - Exportar contatos via CSV
+[x] - Exportar contatos via CSV
 [ ] - Página de not found
 
 ## Tentarei adicionar se houver tempo:
@@ -58,7 +58,13 @@ interface Endereco {
 [ ] - Backend próprio
 
 ## Detalhes extras
+[x] - Trabalhar com tratamento de erros e cache na rota de criação de fornecedor
+
+## Ajustes finais:
 [ ] - Inserir ícone de search no input de filtragem pelo nome
-[ ] - Inserir paginação na lista de fornecedores
-[ ] - Inserir ícone de logout futuramente no header
-[ ] - Trabalhar com tratamento de erros e cache na rota de criação de fornecedor
+[ ] - Padronizar estilos, botões e variáveis de espaçamento
+[ ] - Validar navegação por teclado em todas as páginas
+[ ] - Inserir loading na tela de detalhes do usuário, no botão de exportar csv e no botão de confirmar exclusão
+[ ] - Enviar o componente de input para o components global e separar da label
+[ ] - Validar tratamento de erros na página de detalhes do fornecedor e na edição de fornecedor
+[ ] - Revisar todos os componentes

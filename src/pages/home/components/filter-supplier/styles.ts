@@ -17,24 +17,6 @@ export const Container = styled.form`
   }
 `
 
-export const FilterInput = styled.input`
-  padding: 0.75rem 0.5rem;
-  border-radius: ${({ theme }) => theme.radius.lg};
-  border: 0;
-  outline: 0;
-  flex: 1;
-
-  &:focus {
-    outline: 1px solid ${({ theme }) => theme.colors.primary.dark};
-  }
-
-  @media (min-width: 1024px) {
-    & {
-      font-size: 1.25rem;
-    }
-  }
-`
-
 export const FilterButton = styled.button`
   background-color: ${({ theme }) => theme.colors.orange.default};
   padding: 0.75rem 3rem;

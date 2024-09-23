@@ -14,9 +14,11 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
 
     return (
       <Container>
-        <Label htmlFor={inputId}>
-          {label} {required && <span>*</span>}
-        </Label>
+        {label && (
+          <Label htmlFor={inputId}>
+            {label} {required && <span>*</span>}
+          </Label>
+        )}
         <InputControl
           type={type}
           id={inputId}

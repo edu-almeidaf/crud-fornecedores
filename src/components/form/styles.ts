@@ -4,6 +4,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  flex: 1;
 `
 
 export const Label = styled.label`
@@ -23,10 +24,12 @@ const baseInputStyle = css<{ $hasError: boolean }>`
   padding: 1rem;
   border-radius: ${({ theme }) => theme.radius.md};
   outline: 0;
+  flex: 1;
   border: 1px solid ${({ theme }) => theme.colors.gray.dark};
 
   &:focus {
-    border-color: ${({ theme }) => theme.colors.primary.default};
+    outline: 2px solid ${({ theme }) => theme.colors.primary.dark};
+    outline-offset: 2px;
   }
 
   ${({ theme, $hasError }) =>

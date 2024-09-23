@@ -15,7 +15,7 @@ import {
 import { toast } from 'react-hot-toast'
 import { Spinner } from '@/components/spinner'
 import { BackButtonComponent } from '@/components/back-button'
-import { Input, Textarea } from './components/form'
+import { Input, Textarea } from '@/components/form'
 import { useCreateSupplier } from '@/hooks/useCreateSupplier'
 import { FormProvider, useFieldArray, useForm } from 'react-hook-form'
 import { ContactsFormCard } from './components/contacts-form-card'
