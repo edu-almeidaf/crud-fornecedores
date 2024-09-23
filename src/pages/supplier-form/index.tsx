@@ -24,6 +24,7 @@ import { Trash2 } from 'lucide-react'
 import { useQuery } from '@tanstack/react-query'
 import { getSupplierDetails } from '@/http/get-supplier-details'
 import { useEffect } from 'react'
+import { useUpdateSupplier } from '@/hooks/useUpdateSupplier'
 
 interface SupplierFormProps {
   mode: 'new' | 'edit'
@@ -32,7 +33,11 @@ interface SupplierFormProps {
 export function SupplierForm({ mode }: SupplierFormProps) {
   const { id } = useParams()
   const navigate = useNavigate()
-  const { handleCreateSupplier, isPending } = useCreateSupplier()
+  const { handleCreateSupplier, createPending } = useCreateSupplier()
+  const { handleUpdateSupplier, updatePending } = useUpdateSupplier()
+  const isEditSupplierPage = mode === 'edit' && id
+  const isPending = isEditSupplierPage ? updatePending : createPending
+  const submitMessage = isEditSupplierPage ? 'Atualizar' : 'Criar'
 
   const methods = useForm<FormData>({
     criteriaMode: 'all',
@@ -79,18 +84,32 @@ export function SupplierForm({ mode }: SupplierFormProps) {
   }, [supplierDetails, reset])
 
   async function onSubmit(data: FormData) {
-    try {
-      await handleCreateSupplier(data)
+    const formattedMessagesInfo = {
+      new: {
+        success: 'Fornecedor criado com sucesso',
+        error: 'Erro ao criar o fornecedor, tente novamente mais tarde',
+      },
+      edit: {
+        success: 'Fornecedor atualizado com sucesso',
+        error: 'Erro ao criar o fornecedor, tente novamente mais tarde',
+      },
+    }
 
-      toast.success('Fornecedor criado com sucesso')
-      navigate('/')
+    try {
+      if (isEditSupplierPage) {
+        await handleUpdateSupplier({ id, data })
+      } else {
+        await handleCreateSupplier(data)
+      }
+
+      toast.success(formattedMessagesInfo[mode].success)
+      navigate(isEditSupplierPage ? `/${id}` : '/')
       reset()
     } catch {
-      toast.error('Erro ao criar o fornecedor, tente novamente mais tarde')
+      toast.error(formattedMessagesInfo[mode].error)
     }
   }
 
-  const isEditSupplierPage = mode === 'edit' && id
   return (
     <Main>
       <PageHeader>
@@ -138,7 +157,7 @@ export function SupplierForm({ mode }: SupplierFormProps) {
           {errors.contacts && <p>{errors.contacts.message}</p>}
 
           <CreateSupplierBtn type="submit" disabled={isPending}>
-            {isPending ? <Spinner /> : 'Criar'}
+            {isPending ? <Spinner /> : submitMessage}
           </CreateSupplierBtn>
         </Form>
       </FormProvider>

@@ -2,9 +2,10 @@ import { createSupplier } from '@/http/create-supplier'
 import { useMutation } from '@tanstack/react-query'
 
 export function useCreateSupplier() {
-  const { mutateAsync: handleCreateSupplier, isPending } = useMutation({
-    mutationFn: createSupplier,
-  })
+  const { mutateAsync: handleCreateSupplier, isPending: createPending } =
+    useMutation({
+      mutationFn: createSupplier,
+    })
 
-  return { handleCreateSupplier, isPending }
+  return { handleCreateSupplier, createPending }
 }
