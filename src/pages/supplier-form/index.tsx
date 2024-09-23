@@ -37,6 +37,7 @@ export function SupplierForm({ mode }: SupplierFormProps) {
     clearErrors,
     errors,
     fields,
+    setValue,
     handleSubmit,
     register,
     remove,
@@ -69,24 +70,12 @@ export function SupplierForm({ mode }: SupplierFormProps) {
     if (addressInfo && editingIndex !== null) {
       clearErrors(`contacts.${editingIndex}.address.zipCode`)
 
-      reset((formData) => ({
-        ...formData,
-        contacts: formData.contacts.map((contact, index) => {
-          if (editingIndex === index) {
-            return {
-              ...contact,
-              address: {
-                ...contact.address,
-                street: addressInfo.logradouro || '',
-                city: addressInfo.localidade,
-                state: addressInfo.uf,
-              },
-            }
-          }
-
-          return contact
-        }),
-      }))
+      setValue(`contacts.${editingIndex}.address.city`, addressInfo.localidade)
+      setValue(`contacts.${editingIndex}.address.state`, addressInfo.uf)
+      setValue(
+        `contacts.${editingIndex}.address.street`,
+        addressInfo.logradouro,
+      )
     }
 
     if (isError && editingIndex !== null) {
@@ -95,7 +84,7 @@ export function SupplierForm({ mode }: SupplierFormProps) {
         message: 'CEP inválido. Por favor, verifique.',
       })
     }
-  }, [addressInfo, editingIndex, clearErrors, reset, isError, setError])
+  }, [addressInfo, editingIndex, clearErrors, setValue, isError, setError])
 
   function handleZipCodeFocus(index: number) {
     setEditingIndex(index)
