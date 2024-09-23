@@ -19,8 +19,10 @@ export interface Supplier {
   }[]
 }
 
-export async function getSuppliers() {
-  const response = await api.get<Supplier[]>('/suppliers')
+export async function getSuppliers(supplierName: string | null) {
+  const params = supplierName ? { name_like: supplierName } : {}
+
+  const response = await api.get<Supplier[]>('/suppliers', { params })
 
   return response.data
 }

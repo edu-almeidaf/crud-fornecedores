@@ -4,15 +4,20 @@ import { EmptyList } from '../empty-list'
 import { ErrorContent, ShowMoreBtn, SupplierCard } from './styles'
 import Skeleton from 'react-loading-skeleton'
 import { CircleX } from 'lucide-react'
+import { useSearchParams } from 'react-router-dom'
 
 export function SuppliersList() {
+  const [searchParams] = useSearchParams()
+
+  const supplierName = searchParams.get('supplierName')
+
   const {
     data: suppliers,
     isLoading,
     isError,
   } = useQuery({
-    queryKey: ['suppliers'],
-    queryFn: getSuppliers,
+    queryKey: ['suppliers', supplierName],
+    queryFn: () => getSuppliers(supplierName),
   })
 
   if (isLoading) {
