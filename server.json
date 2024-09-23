@@ -125,6 +125,26 @@
         }
       ],
       "id": 5
+    },
+    {
+      "name": "Eduardo dos bugs",
+      "description": "",
+      "contacts": [
+        {
+          "name": "Joaquim",
+          "phoneNumber": "(42) 99999-9999",
+          "address": {
+            "zipCode": "85070-190",
+            "state": "PR",
+            "city": "Guarapuava",
+            "street": "Rua Pedro Siqueira",
+            "number": "352",
+            "complement": "",
+            "reference": ""
+          }
+        }
+      ],
+      "id": 6
     }
   ]
 }
