@@ -34,39 +34,6 @@
       "id": 1
     },
     {
-      "name": "Eduardo",
-      "description": "Teste",
-      "contacts": [
-        {
-          "name": "Eduardo",
-          "phoneNumber": "(42) 99940-2705",
-          "address": {
-            "zipCode": "85070-190",
-            "state": "PR",
-            "city": "Guarapuava",
-            "street": "Rua Pedro Siqueira da silva sauro",
-            "number": "352",
-            "complement": "Casa",
-            "reference": ""
-          }
-        },
-        {
-          "name": "Maria",
-          "phoneNumber": "(42) 99999-9999",
-          "address": {
-            "zipCode": "85080-184",
-            "state": "PR",
-            "city": "Guarapuava",
-            "street": "Rua guaira",
-            "number": "2121",
-            "complement": "",
-            "reference": "Posto Shell"
-          }
-        }
-      ],
-      "id": 2
-    },
-    {
       "name": "adqasdasd",
       "description": "",
       "contacts": [
@@ -85,66 +52,6 @@
         }
       ],
       "id": 3
-    },
-    {
-      "name": "Eduardo & Cia LTDA.",
-      "description": "Uma descrição legal",
-      "contacts": [
-        {
-          "name": "João",
-          "phoneNumber": "(42) 99999-9999",
-          "address": {
-            "zipCode": "85070-190",
-            "state": "PR",
-            "city": "Sao Paulo",
-            "street": "Rua São José",
-            "number": "123",
-            "complement": "Casa",
-            "reference": "Perto de você sabe quem"
-          }
-        }
-      ],
-      "id": 4
-    },
-    {
-      "name": "Teste Update",
-      "description": "",
-      "contacts": [
-        {
-          "name": "aslkdaslkdj",
-          "phoneNumber": "(42) 99999-9999",
-          "address": {
-            "zipCode": "85070-190",
-            "state": "PR",
-            "city": "Guarapuava",
-            "street": "Rua Pedro Siqueira",
-            "number": "352",
-            "complement": "casa",
-            "reference": "asdasdsa"
-          }
-        }
-      ],
-      "id": 5
-    },
-    {
-      "name": "Eduardo dos bugs",
-      "description": "",
-      "contacts": [
-        {
-          "name": "Joaquim",
-          "phoneNumber": "(42) 99999-9999",
-          "address": {
-            "zipCode": "85070-190",
-            "state": "PR",
-            "city": "Guarapuava",
-            "street": "Rua Pedro Siqueira",
-            "number": "352",
-            "complement": "",
-            "reference": ""
-          }
-        }
-      ],
-      "id": 6
     }
   ]
 }

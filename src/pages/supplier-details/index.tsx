@@ -1,3 +1,4 @@
+import * as Dialog from '@radix-ui/react-dialog'
 import { Main, PageHeader, PageTitle } from '@/components/main/styles'
 import { getSupplierDetails } from '@/http/get-supplier-details'
 import { useQuery } from '@tanstack/react-query'
@@ -11,9 +12,15 @@ import {
 } from './styles'
 import { BackButtonComponent } from '@/components/back-button'
 import { Address } from '@/interfaces/address'
+import { ConfirmDeleteSupplierModal } from './components/confirm-delete-supplier-modal'
+import { useState } from 'react'
+import { useDeleteSupplier } from '@/hooks/useDeleteSupplier'
 
 export function SupplierDetails() {
   const { id } = useParams<{ id: string }>()
+  const [isDeleteSupplierModalOpen, setIsDeleteSupplierModalOpen] =
+    useState(false)
+  const { handleDeleteSupplier } = useDeleteSupplier()
 
   const { data: supplier } = useQuery({
     queryKey: ['supplierDetails', id],
@@ -25,6 +32,11 @@ export function SupplierDetails() {
     return complement
       ? `${street}, ${number}, ${complement}`
       : `${street}, ${number}`
+  }
+
+  async function handleConfirmDeleteSupplier() {
+    await handleDeleteSupplier(id as string)
+    setIsDeleteSupplierModalOpen(false)
   }
 
   return (
@@ -85,7 +97,16 @@ export function SupplierDetails() {
           Atualizar Contato
         </UpdateProfileLink>
 
-        <DeleteProfileButton>Deletar Contato</DeleteProfileButton>
+        <Dialog.Root
+          open={isDeleteSupplierModalOpen}
+          onOpenChange={setIsDeleteSupplierModalOpen}
+        >
+          <Dialog.Trigger asChild>
+            <DeleteProfileButton>Deletar Contato</DeleteProfileButton>
+          </Dialog.Trigger>
+
+          <ConfirmDeleteSupplierModal onConfirm={handleConfirmDeleteSupplier} />
+        </Dialog.Root>
       </SupplierDetailsContainer>
     </Main>
   )
