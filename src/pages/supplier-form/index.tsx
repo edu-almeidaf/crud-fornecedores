@@ -21,6 +21,9 @@ import { FormProvider, useFieldArray, useForm } from 'react-hook-form'
 import { ContactsFormCard } from './components/contacts-form-card'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { Trash2 } from 'lucide-react'
+import { useQuery } from '@tanstack/react-query'
+import { getSupplierDetails } from '@/http/get-supplier-details'
+import { useEffect } from 'react'
 
 interface SupplierFormProps {
   mode: 'new' | 'edit'
@@ -54,6 +57,26 @@ export function SupplierForm({ mode }: SupplierFormProps) {
     control,
     name: 'contacts',
   })
+
+  const { data: supplierDetails } = useQuery({
+    queryKey: ['supplierDetails', id],
+    queryFn: () => getSupplierDetails(id as string),
+    enabled: mode === 'edit' && !!id,
+    retry: false,
+  })
+
+  useEffect(() => {
+    if (supplierDetails) {
+      reset({
+        name: supplierDetails.name,
+        description: supplierDetails.description,
+        contacts:
+          supplierDetails.contacts.length > 0
+            ? supplierDetails.contacts
+            : [contactsInitialFormState],
+      })
+    }
+  }, [supplierDetails, reset])
 
   async function onSubmit(data: FormData) {
     try {

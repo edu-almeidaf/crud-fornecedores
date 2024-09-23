@@ -39,8 +39,6 @@ export function ContactsFormCard({ index }: ContactsFormCardProps) {
     retry: false,
   })
 
-  console.log(errors.contacts)
-
   useEffect(() => {
     if (addressInfo && editingIndex !== null) {
       clearErrors(`contacts.${editingIndex}.address.zipCode`)

@@ -15,7 +15,7 @@ export function SupplierDetails() {
   const { id } = useParams<{ id: string }>()
 
   const { data: supplier } = useQuery({
-    queryKey: ['suppliers', id],
+    queryKey: ['supplierDetails', id],
     queryFn: () => getSupplierDetails(id as string),
   })
 
