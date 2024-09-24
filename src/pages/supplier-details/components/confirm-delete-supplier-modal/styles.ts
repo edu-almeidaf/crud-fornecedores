@@ -7,7 +7,7 @@ export const ButtonGroup = styled.div`
 `
 
 export const ConfirmButton = styled.button`
-  background-color: ${({ theme }) => theme.colors.danger};
+  background-color: ${({ theme }) => theme.colors.confirm};
   color: ${({ theme }) => theme.colors.white};
   padding: ${({ theme }) => `${theme.spacing['2']} ${theme.spacing['4']}`};
   border: none;
@@ -15,14 +15,14 @@ export const ConfirmButton = styled.button`
   cursor: pointer;
 
   &:hover {
-    background-color: #d32f2f;
+    background-color: ${({ theme }) => theme.colors.danger};
   }
 `
 
 export const CancelButton = styled(ConfirmButton)`
-  background-color: #757575;
+  background-color: ${({ theme }) => theme.colors.gray.medium};
 
   &:hover {
-    background-color: #616161;
+    background-color: ${({ theme }) => theme.colors.gray.dark};
   }
 `

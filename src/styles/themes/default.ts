@@ -5,6 +5,7 @@ export const defaultTheme = {
     title: '#3C3C3B',
     whatsapp: '#25D366',
     danger: '#b91c1c',
+    confirm: '#d32f2f',
 
     primary: {
       light: '#4AC0FF',
@@ -14,6 +15,7 @@ export const defaultTheme = {
 
     gray: {
       light: '#F9F9F9',
+      medium: '#757575',
       default: '#EFEFEF',
       dark: '#666666',
     },
