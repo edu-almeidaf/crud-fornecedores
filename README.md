@@ -61,10 +61,9 @@ interface Endereco {
 [x] - Trabalhar com tratamento de erros e cache na rota de criação de fornecedor
 
 ## Ajustes finais:
-[ ] - Inserir ícone de search no input de filtragem pelo nome
-[ ] - Padronizar estilos, botões e variáveis de espaçamento
+[x] - Padronizar estilos, botões e variáveis de espaçamento
 [ ] - Validar navegação por teclado em todas as páginas
 [ ] - Inserir loading na tela de detalhes do usuário, no botão de exportar csv e no botão de confirmar exclusão
-[ ] - Enviar o componente de input para o components global e separar da label
-[ ] - Validar tratamento de erros na página de detalhes do fornecedor e na edição de fornecedor
+[x] - Enviar o componente de input para o components global e separar da label
+[x] - Validar tratamento de erros na página de detalhes do fornecedor e na edição de fornecedor
 [ ] - Revisar todos os componentes

@@ -15,4 +15,9 @@ export const NotFoundMessageContainer = styled.section`
     font-weight: 500;
     line-height: 1.6;
   }
+
+  a {
+    text-decoration: none;
+    color: ${({ theme }) => theme.colors.primary.dark};
+  }
 `

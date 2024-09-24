@@ -1,6 +1,7 @@
 import { BackButtonComponent } from '@/components/back-button'
 import { Main, PageHeader, PageTitle } from '@/components/main/styles'
 import { NotFoundMessageContainer } from './styles'
+import { Link } from 'react-router-dom'
 
 export function NotFound() {
   return (
@@ -14,7 +15,7 @@ export function NotFound() {
           <p>
             A página que você está procurando não existe ou não conseguimos
             encontrar o item solicitado. Por favor, verifique o URL ou volte
-            para a página inicial.
+            para a <Link to="/">página inicial</Link>.
           </p>
         </NotFoundMessageContainer>
       </PageHeader>

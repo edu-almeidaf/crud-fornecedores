@@ -25,6 +25,8 @@ import { useQuery } from '@tanstack/react-query'
 import { getSupplierDetails } from '@/http/get-supplier-details'
 import { useEffect } from 'react'
 import { useUpdateSupplier } from '@/hooks/useUpdateSupplier'
+import Skeleton from 'react-loading-skeleton'
+import { NotFound } from '../not-found'
 
 interface SupplierFormProps {
   mode: 'new' | 'edit'
@@ -63,11 +65,14 @@ export function SupplierForm({ mode }: SupplierFormProps) {
     name: 'contacts',
   })
 
-  const { data: supplierDetails } = useQuery({
+  const {
+    data: supplierDetails,
+    isLoading,
+    isError,
+  } = useQuery({
     queryKey: ['supplierDetails', id],
     queryFn: () => getSupplierDetails(id as string),
     enabled: mode === 'edit' && !!id,
-    retry: false,
   })
 
   useEffect(() => {
@@ -110,6 +115,10 @@ export function SupplierForm({ mode }: SupplierFormProps) {
     }
   }
 
+  if (isError) {
+    return <NotFound />
+  }
+
   return (
     <Main>
       <PageHeader>
@@ -121,44 +130,60 @@ export function SupplierForm({ mode }: SupplierFormProps) {
 
       <FormProvider {...methods}>
         <Form onSubmit={handleSubmit(onSubmit)}>
-          <Input
-            label="Nome"
-            {...register('name')}
-            error={errors.name}
-            required
-          />
+          {isEditSupplierPage && isLoading ? (
+            <>
+              <Skeleton height={60} />
+              <Skeleton height={80} />
+              <Skeleton height={40} />
+              <Skeleton height={40} />
+              <Skeleton height={70} />
+            </>
+          ) : (
+            <>
+              <Input
+                label="Nome"
+                {...register('name')}
+                error={errors.name}
+                required
+              />
 
-          <Textarea label="Descrição" {...register('description')} />
+              <Textarea label="Descrição" {...register('description')} />
+            </>
+          )}
 
-          <h2>Contatos</h2>
+          {(!isEditSupplierPage || !isLoading) && (
+            <>
+              <h2>Contatos</h2>
 
-          {fields.map((field, index) => (
-            <ContactForm key={field.id}>
-              <ContactHeader>
-                <h3>Contato {index + 1}</h3>
+              {fields.map((field, index) => (
+                <ContactForm key={field.id}>
+                  <ContactHeader>
+                    <h3>Contato {index + 1}</h3>
 
-                {index > 0 && (
-                  <button type="button" onClick={() => remove(index)}>
-                    <Trash2 />
-                  </button>
-                )}
-              </ContactHeader>
-              <ContactsFormCard key={field.id} index={index} />
-            </ContactForm>
-          ))}
+                    {index > 0 && (
+                      <button type="button" onClick={() => remove(index)}>
+                        <Trash2 />
+                      </button>
+                    )}
+                  </ContactHeader>
+                  <ContactsFormCard key={field.id} index={index} />
+                </ContactForm>
+              ))}
 
-          <AddContactButton
-            type="button"
-            onClick={() => append(contactsInitialFormState)}
-          >
-            Adicionar contato
-          </AddContactButton>
+              <AddContactButton
+                type="button"
+                onClick={() => append(contactsInitialFormState)}
+              >
+                Adicionar contato
+              </AddContactButton>
 
-          {errors.contacts && <p>{errors.contacts.message}</p>}
+              {errors.contacts && <p>{errors.contacts.message}</p>}
 
-          <CreateSupplierBtn type="submit" disabled={isPending}>
-            {isPending ? <Spinner /> : submitMessage}
-          </CreateSupplierBtn>
+              <CreateSupplierBtn type="submit" disabled={isPending}>
+                {isPending ? <Spinner /> : submitMessage}
+              </CreateSupplierBtn>
+            </>
+          )}
         </Form>
       </FormProvider>
     </Main>
