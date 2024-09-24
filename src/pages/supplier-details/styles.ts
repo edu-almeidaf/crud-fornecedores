@@ -110,3 +110,9 @@ export const DeleteProfileButton = styled.button`
     width: 50%;
   }
 `
+
+export const SupplierSkeletonWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+`
