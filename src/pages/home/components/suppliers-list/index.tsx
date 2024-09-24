@@ -11,13 +11,14 @@ import Skeleton from 'react-loading-skeleton'
 import { CircleX } from 'lucide-react'
 import { useSearchParams } from 'react-router-dom'
 import { useExportSuppliersCSV } from '@/hooks/useExportSuppliersCsv'
+import { Spinner } from '@/components/spinner'
 
 export function SuppliersList() {
   const [searchParams] = useSearchParams()
 
   const supplierName = searchParams.get('supplierName')
 
-  const { exportSuppliersToCSV } = useExportSuppliersCSV()
+  const { exportSuppliersToCSV, isExportingCSV } = useExportSuppliersCSV()
 
   const {
     data: suppliers,
@@ -49,8 +50,11 @@ export function SuppliersList() {
     <>
       {suppliers && suppliers.length > 0 ? (
         <>
-          <ExportCsvButton onClick={() => exportSuppliersToCSV(suppliers)}>
-            Gerar CSV
+          <ExportCsvButton
+            disabled={isExportingCSV}
+            onClick={() => exportSuppliersToCSV(suppliers)}
+          >
+            {isExportingCSV ? <Spinner /> : 'Gerar CSV'}
           </ExportCsvButton>
           {suppliers.map((supplier) => (
             <SupplierCard key={supplier.id}>

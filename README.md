@@ -62,7 +62,7 @@ interface Endereco {
 
 ## Ajustes finais:
 [x] - Padronizar estilos, botões e variáveis de espaçamento
-[ ] - Validar navegação por teclado em todas as páginas
+[x] - Validar navegação por teclado em todas as páginas
 [ ] - Inserir loading na tela de detalhes do usuário, no botão de exportar csv e no botão de confirmar exclusão
 [x] - Enviar o componente de input para o components global e separar da label
 [x] - Validar tratamento de erros na página de detalhes do fornecedor e na edição de fornecedor

@@ -33,29 +33,29 @@ export const ContactList = styled.div`
   }
 `
 
-export const ContactCard = styled.div`
-  display: flex;
-  flex-direction: column;
-  background-color: ${({ theme }) => theme.colors.primary.dark};
-  color: ${({ theme }) => theme.colors.white};
-  gap: ${({ theme }) => theme.spacing['4']};
-  padding: ${({ theme }) => theme.spacing['4']};
-  border-radius: ${({ theme }) => theme.radius.md};
+// export const ContactCard = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   background-color: ${({ theme }) => theme.colors.primary.dark};
+//   color: ${({ theme }) => theme.colors.white};
+//   gap: ${({ theme }) => theme.spacing['4']};
+//   padding: ${({ theme }) => theme.spacing['4']};
+//   border-radius: ${({ theme }) => theme.radius.md};
 
-  p {
-    font-size: ${({ theme }) => theme.spacing['5']};
-    color: ${({ theme }) => theme.colors.white};
-    text-align: left;
-  }
+//   p {
+//     font-size: ${({ theme }) => theme.spacing['5']};
+//     color: ${({ theme }) => theme.colors.white};
+//     text-align: left;
+//   }
 
-  h2 {
-    color: ${({ theme }) => theme.colors.white};
-  }
+//   h2 {
+//     color: ${({ theme }) => theme.colors.white};
+//   }
 
-  ul {
-    padding: 0 ${({ theme }) => theme.spacing['8']};
-  }
-`
+//   ul {
+//     padding: 0 ${({ theme }) => theme.spacing['8']};
+//   }
+// `
 
 export const UpdateProfileLink = styled(Link)`
   display: flex;
