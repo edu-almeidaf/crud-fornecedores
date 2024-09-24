@@ -87,7 +87,7 @@ export function SupplierDetails() {
         {supplier && (
           <>
             <UpdateProfileLink to={`/${id}/edit`} aria-disabled>
-              Atualizar Contato
+              Atualizar Cadastro
             </UpdateProfileLink>
 
             <Dialog.Root
@@ -95,7 +95,7 @@ export function SupplierDetails() {
               onOpenChange={setIsDeleteSupplierModalOpen}
             >
               <Dialog.Trigger asChild>
-                <DeleteProfileButton>Deletar Contato</DeleteProfileButton>
+                <DeleteProfileButton>Excluir Fornecedor</DeleteProfileButton>
               </Dialog.Trigger>
 
               <ConfirmDeleteSupplierModal

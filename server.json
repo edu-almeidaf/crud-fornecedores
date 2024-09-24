@@ -1,104 +1,269 @@
 {
   "suppliers": [
     {
-      "name": "Teste",
-      "description": "",
+      "name": "Construtora Ideal",
+      "description": "Empresa de fornecimento de materiais de construção",
       "contacts": [
         {
-          "name": "Edu",
-          "phoneNumber": "(42) 99999-9999",
+          "name": "João Silva",
+          "phoneNumber": "(11) 91234-5678",
           "address": {
-            "zipCode": "85070-190",
-            "state": "PR",
-            "city": "Guarapuava",
-            "street": "Rua Pedro Siqueira",
-            "number": "352",
-            "complement": "casa",
-            "reference": "Casa"
+            "zipCode": "01001-000",
+            "state": "SP",
+            "city": "São Paulo",
+            "street": "Avenida Paulista",
+            "number": "1234",
+            "complement": "10º andar",
+            "reference": "Próximo ao MASP"
+          }
+        },
+        {
+          "name": "Maria Fernandes",
+          "phoneNumber": "(11) 98765-4321",
+          "address": {
+            "zipCode": "01310-200",
+            "state": "SP",
+            "city": "São Paulo",
+            "street": "Rua Augusta",
+            "number": "300",
+            "complement": "apto 502",
+            "reference": "Próximo ao Shopping Frei Caneca"
           }
         }
       ],
       "id": 1
     },
     {
-      "name": "Teste",
-      "description": "",
+      "name": "TechDistribuidora",
+      "description": "Distribuidora de produtos eletrônicos",
       "contacts": [
         {
-          "name": "Edu",
-          "phoneNumber": "(42) 99999-9999",
+          "name": "Ana Pereira",
+          "phoneNumber": "(21) 99876-5432",
           "address": {
-            "zipCode": "85070-190",
-            "state": "PR",
-            "city": "Guarapuava",
-            "street": "Rua Pedro Siqueira",
-            "number": "352",
-            "complement": "casa",
-            "reference": "Casa"
+            "zipCode": "20031-144",
+            "state": "RJ",
+            "city": "Rio de Janeiro",
+            "street": "Rua da Assembleia",
+            "number": "102",
+            "complement": "sala 401",
+            "reference": "Próximo ao metrô Carioca"
+          }
+        },
+        {
+          "name": "Carlos Mendes",
+          "phoneNumber": "(21) 98456-7890",
+          "address": {
+            "zipCode": "22041-001",
+            "state": "RJ",
+            "city": "Rio de Janeiro",
+            "street": "Avenida Atlântica",
+            "number": "200",
+            "complement": "cobertura 3",
+            "reference": "Em frente à praia de Copacabana"
           }
         }
       ],
       "id": 2
     },
     {
-      "name": "Teste",
-      "description": "",
+      "name": "SoftTech Solutions",
+      "description": "Serviços de TI",
       "contacts": [
         {
-          "name": "Edu",
-          "phoneNumber": "(42) 99999-9999",
+          "name": "Carlos Souza",
+          "phoneNumber": "(31) 98765-4321",
           "address": {
-            "zipCode": "85070-190",
-            "state": "PR",
-            "city": "Guarapuava",
-            "street": "Rua Pedro Siqueira",
-            "number": "352",
-            "complement": "casa",
-            "reference": "Casa"
+            "zipCode": "30140-100",
+            "state": "MG",
+            "city": "Belo Horizonte",
+            "street": "Avenida Afonso Pena",
+            "number": "3000",
+            "complement": "4º andar",
+            "reference": "Próximo ao Parque Municipal"
           }
         }
       ],
       "id": 3
     },
     {
-      "name": "Teste",
-      "description": "",
+      "name": "TransLogística",
+      "description": "Empresa de logística",
       "contacts": [
         {
-          "name": "Edu",
-          "phoneNumber": "(42) 99999-9999",
+          "name": "Beatriz Lima",
+          "phoneNumber": "(41) 99988-7766",
           "address": {
-            "zipCode": "85070-190",
+            "zipCode": "80010-150",
             "state": "PR",
-            "city": "Guarapuava",
-            "street": "Rua Pedro Siqueira",
-            "number": "352",
-            "complement": "casa",
-            "reference": "Casa"
+            "city": "Curitiba",
+            "street": "Rua XV de Novembro",
+            "number": "150",
+            "complement": "apto 203",
+            "reference": "Esquina com Rua Ébano Pereira"
           }
         }
       ],
       "id": 4
     },
     {
-      "name": "Teste",
-      "description": "",
+      "name": "DecoraCasa",
+      "description": "Venda de móveis e decoração",
       "contacts": [
         {
-          "name": "Edu",
-          "phoneNumber": "(42) 99999-9999",
+          "name": "Fernanda Alves",
+          "phoneNumber": "(71) 98123-4567",
           "address": {
-            "zipCode": "85070-190",
-            "state": "PR",
-            "city": "Guarapuava",
-            "street": "Rua Pedro Siqueira",
-            "number": "352",
-            "complement": "casa",
-            "reference": "Casa"
+            "zipCode": "40100-000",
+            "state": "BA",
+            "city": "Salvador",
+            "street": "Avenida Sete de Setembro",
+            "number": "123",
+            "complement": "Loja 2",
+            "reference": "Próximo ao Farol da Barra"
+          }
+        },
+        {
+          "name": "Ricardo Borges",
+          "phoneNumber": "(71) 98234-5678",
+          "address": {
+            "zipCode": "40020-150",
+            "state": "BA",
+            "city": "Salvador",
+            "street": "Rua Carlos Gomes",
+            "number": "456",
+            "complement": "Bloco B, Sala 10",
+            "reference": "Próximo ao Teatro Castro Alves"
           }
         }
       ],
       "id": 5
+    },
+    {
+      "name": "Construsul",
+      "description": "Serviços de construção civil",
+      "contacts": [
+        {
+          "name": "Gabriel Santos",
+          "phoneNumber": "(51) 98765-4321",
+          "address": {
+            "zipCode": "90010-140",
+            "state": "RS",
+            "city": "Porto Alegre",
+            "street": "Avenida Borges de Medeiros",
+            "number": "1500",
+            "complement": "Sala 305",
+            "reference": "Próximo ao Mercado Público"
+          }
+        }
+      ],
+      "id": 6
+    },
+    {
+      "name": "Goiás Alimentos",
+      "description": "Distribuidora de alimentos",
+      "contacts": [
+        {
+          "name": "Mariana Costa",
+          "phoneNumber": "(62) 99876-5432",
+          "address": {
+            "zipCode": "74810-010",
+            "state": "GO",
+            "city": "Goiânia",
+            "street": "Rua 9",
+            "number": "100",
+            "complement": "Galpão 5",
+            "reference": "Próximo ao Flamboyant Shopping Center"
+          }
+        },
+        {
+          "name": "Paulo Meireles",
+          "phoneNumber": "(62) 98456-7890",
+          "address": {
+            "zipCode": "74820-100",
+            "state": "GO",
+            "city": "Goiânia",
+            "street": "Rua T-63",
+            "number": "999",
+            "complement": "Loja 3",
+            "reference": "Em frente ao Goiânia Shopping"
+          }
+        }
+      ],
+      "id": 7
+    },
+    {
+      "name": "AgroSanta",
+      "description": "Vendas de produtos agrícolas",
+      "contacts": [
+        {
+          "name": "Lucas Rocha",
+          "phoneNumber": "(48) 99912-3456",
+          "address": {
+            "zipCode": "88010-000",
+            "state": "SC",
+            "city": "Florianópolis",
+            "street": "Rua Conselheiro Mafra",
+            "number": "250",
+            "complement": "Loja 8",
+            "reference": "Próximo ao Mercado Público"
+          }
+        }
+      ],
+      "id": 8
+    },
+    {
+      "name": "FinanMais Consultoria",
+      "description": "Consultoria financeira",
+      "contacts": [
+        {
+          "name": "Tatiane Oliveira",
+          "phoneNumber": "(82) 98876-5432",
+          "address": {
+            "zipCode": "57010-000",
+            "state": "AL",
+            "city": "Maceió",
+            "street": "Avenida Fernandes Lima",
+            "number": "500",
+            "complement": "10º andar",
+            "reference": "Próximo ao Shopping Maceió"
+          }
+        }
+      ],
+      "id": 9
+    },
+    {
+      "name": "ModaNordeste",
+      "description": "Fabricação de roupas",
+      "contacts": [
+        {
+          "name": "Vinícius Mendes",
+          "phoneNumber": "(84) 99123-4567",
+          "address": {
+            "zipCode": "59010-000",
+            "state": "RN",
+            "city": "Natal",
+            "street": "Avenida Rio Branco",
+            "number": "1200",
+            "complement": "Galpão 1",
+            "reference": "Próximo à Praça André de Albuquerque"
+          }
+        },
+        {
+          "name": "Laura Almeida",
+          "phoneNumber": "(84) 98123-4567",
+          "address": {
+            "zipCode": "59020-000",
+            "state": "RN",
+            "city": "Natal",
+            "street": "Rua João Pessoa",
+            "number": "50",
+            "complement": "Sala 101",
+            "reference": "Ao lado da Catedral"
+          }
+        }
+      ],
+      "id": 10
     }
   ]
 }
