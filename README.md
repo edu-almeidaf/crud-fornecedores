@@ -106,6 +106,7 @@ Para remover um contato também é super fácil. Basta você clicar no botão de
 - Todas as telas exibem toasts para ações de sucesso ou erro.
 - Todas as telas possuem validação visual de erros para api fora do ar ou algum retorno de erro, assim o usuário tem detalhes do que está acontecendo e evita da aplicação quebrar.
 - Todas as telas tem acessibilidade para navegação por teclado, sendo cada input ou botão estilizado com outline, focus e hover de cor individual, facilitando na navegação do usuário.
+- Filtro de fornecedor salvo em URL State, para o link ser compartilhado sem perder o filtro ativo.
 
 ## Tecnologias Utilizadas
 - [React](https://react.dev/)
