@@ -2,13 +2,16 @@ import { Description, Title } from '@/components/dialog/styles'
 import { DialogContent } from '@/components/dialog/content'
 import { ButtonGroup, CancelButton, ConfirmButton } from './styles'
 import * as Dialog from '@radix-ui/react-dialog'
+import { Spinner } from '@/components/spinner'
 
 interface ConfirmDeleteSupplierModalProps {
   onConfirm: () => void
+  isPending: boolean
 }
 
 export function ConfirmDeleteSupplierModal({
   onConfirm,
+  isPending,
 }: ConfirmDeleteSupplierModalProps) {
   return (
     <DialogContent>
@@ -21,7 +24,9 @@ export function ConfirmDeleteSupplierModal({
         <Dialog.Close asChild>
           <CancelButton>Cancelar</CancelButton>
         </Dialog.Close>
-        <ConfirmButton onClick={onConfirm}>Excluir</ConfirmButton>
+        <ConfirmButton disabled={isPending} onClick={onConfirm}>
+          {isPending ? <Spinner /> : 'Excluir'}
+        </ConfirmButton>
       </ButtonGroup>
     </DialogContent>
   )

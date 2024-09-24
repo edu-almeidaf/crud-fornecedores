@@ -4,7 +4,6 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => theme.spacing['2']};
-  flex: 1;
 `
 
 export const Label = styled.label`
@@ -24,7 +23,7 @@ const baseInputStyle = css<{ $hasError: boolean }>`
   padding: ${({ theme }) => theme.spacing['4']};
   border-radius: ${({ theme }) => theme.radius.md};
   outline: 0;
-  flex: 1;
+  width: 100%;
   border: 1px solid ${({ theme }) => theme.colors.gray.dark};
 
   &:focus {
@@ -39,6 +38,7 @@ const baseInputStyle = css<{ $hasError: boolean }>`
 
       &:focus {
         border-color: ${theme.colors.danger};
+        outline-color: ${theme.colors.danger};
       }
     `}
 `

@@ -4,13 +4,17 @@ export const defaultTheme = {
     logo: '#3FA1FF',
     title: '#3C3C3B',
     whatsapp: '#25D366',
-    danger: '#b91c1c',
-    confirm: '#d32f2f',
+    danger: '#B91C1C',
+    confirm: '#D32F2F',
 
     primary: {
       light: '#4AC0FF',
       default: '#0082f5',
       dark: '#003B75',
+      hover: {
+        default: '#006AC4',
+        dark: '#002F5D',
+      },
     },
 
     gray: {
@@ -22,6 +26,7 @@ export const defaultTheme = {
 
     orange: {
       default: '#F7841E',
+      hover: '#f97316',
     },
   },
 

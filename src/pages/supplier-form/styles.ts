@@ -100,11 +100,19 @@ export const CreateSupplierBtn = styled.button`
   border-radius: ${({ theme }) => theme.radius.md};
   background-color: ${({ theme }) => theme.colors.orange.default};
   border: none;
-  cursor: pointer;
   color: ${({ theme }) => theme.colors.white};
   transition:
     background-color 0.2s,
     color 0.2s;
+
+  &:focus {
+    outline-color: ${({ theme }) => theme.colors.orange.default};
+  }
+
+  &:hover,
+  &:focus {
+    background-color: ${({ theme }) => theme.colors.orange.hover};
+  }
 
   @media (min-width: 1024px) {
     width: 50%;

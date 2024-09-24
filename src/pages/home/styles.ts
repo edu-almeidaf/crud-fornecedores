@@ -7,7 +7,6 @@ export const NewSupplierCard = styled.div`
 `
 
 export const AddSupplierButton = styled(Link)`
-  text-decoration: none;
   background-color: ${({ theme }) => theme.colors.primary.default};
   color: ${({ theme }) => theme.colors.white};
   padding: ${({ theme }) => theme.spacing['4']};
@@ -15,6 +14,15 @@ export const AddSupplierButton = styled(Link)`
   text-align: center;
   align-self: flex-end;
   border-radius: ${({ theme }) => theme.radius.md};
+
+  &:focus,
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.primary.hover.default};
+  }
+
+  &:focus {
+    outline: 2px solid ${({ theme }) => theme.colors.primary.default};
+  }
 
   @media (min-width: 1024px) {
     width: auto;

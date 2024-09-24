@@ -23,7 +23,7 @@ export function SupplierDetails() {
   const { id } = useParams<{ id: string }>()
   const [isDeleteSupplierModalOpen, setIsDeleteSupplierModalOpen] =
     useState(false)
-  const { handleDeleteSupplier } = useDeleteSupplier()
+  const { handleDeleteSupplier, isPending } = useDeleteSupplier()
 
   const {
     data: supplier,
@@ -137,6 +137,7 @@ export function SupplierDetails() {
               </Dialog.Trigger>
 
               <ConfirmDeleteSupplierModal
+                isPending={isPending}
                 onConfirm={handleConfirmDeleteSupplier}
               />
             </Dialog.Root>

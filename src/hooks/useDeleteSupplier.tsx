@@ -9,6 +9,7 @@ export function useDeleteSupplier() {
   const { mutateAsync: handleDeleteSupplier, isPending } = useMutation({
     mutationFn: (id: string) => deleteSupplier(id),
     onSuccess: () => {
+      toast.success('Fornecedor deletado com sucesso!')
       navigate('/')
     },
     onError: () => {

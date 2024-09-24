@@ -1,12 +1,11 @@
 import { useSearchParams } from 'react-router-dom'
-import { Container, FilterButton } from './styles'
+import { Container, FilterButton, FilterInput } from './styles'
 import { useForm } from 'react-hook-form'
 import {
   filterSupplierSchema,
   FilterSupplierSchema,
 } from '@/schemas/filter-supplier-schema'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { Input } from '@/components/form'
 
 export function FilterSupplier() {
   const [searchParams, setSearchParams] = useSearchParams()
@@ -34,7 +33,7 @@ export function FilterSupplier() {
 
   return (
     <Container onSubmit={handleSubmit(handleFilter)}>
-      <Input
+      <FilterInput
         {...register('supplierName')}
         type="text"
         placeholder="Encontre um fornecedor pelo nome"

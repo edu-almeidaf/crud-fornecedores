@@ -19,6 +19,15 @@ export const BackButton = styled(Link)`
     outline-offset: 2px;
   }
 
+  &:hover,
+  &:focus {
+    background-color: ${({ theme }) => theme.colors.primary.dark};
+
+    svg {
+      color: ${({ theme }) => theme.colors.white};
+    }
+  }
+
   @media (max-width: 768px) {
     top: auto;
     bottom: ${({ theme }) => theme.spacing['5']};

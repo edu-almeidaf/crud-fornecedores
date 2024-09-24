@@ -102,6 +102,7 @@ export function ContactsFormCard({ index }: ContactsFormCardProps) {
 
       <Input
         label="UF"
+        disabled
         {...registerWithMask(`contacts.${index}.address.state`, ['AA'])}
         error={errors.contacts?.[index]?.address?.state}
         required
@@ -109,6 +110,7 @@ export function ContactsFormCard({ index }: ContactsFormCardProps) {
 
       <Input
         label="Cidade"
+        disabled
         {...register(`contacts.${index}.address.city`)}
         error={errors.contacts?.[index]?.address?.city}
         required
@@ -116,6 +118,7 @@ export function ContactsFormCard({ index }: ContactsFormCardProps) {
 
       <Input
         label="Endereço"
+        disabled
         {...register(`contacts.${index}.address.street`)}
         error={errors.contacts?.[index]?.address?.street}
         required

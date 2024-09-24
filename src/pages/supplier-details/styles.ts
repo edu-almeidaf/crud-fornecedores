@@ -58,23 +58,25 @@ export const ContactCard = styled.div`
 `
 
 export const UpdateProfileLink = styled(Link)`
-  text-decoration: none;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: ${({ theme }) => theme.spacing['4.5']};
   padding: ${({ theme }) => theme.spacing['4']};
   border-radius: ${({ theme }) => theme.radius.md};
-  border: 2px solid ${({ theme }) => theme.colors.orange.default};
-  color: ${({ theme }) => theme.colors.orange.default};
+  background-color: ${({ theme }) => theme.colors.orange.default};
+  color: ${({ theme }) => theme.colors.white};
   transition:
     background-color 0.2s,
     color 0.2s;
 
+  &:focus {
+    outline-color: ${({ theme }) => theme.colors.orange.default};
+  }
+
   &:hover,
   &:focus {
-    background-color: ${({ theme }) => theme.colors.orange.default};
-    color: ${({ theme }) => theme.colors.white};
+    background-color: ${({ theme }) => theme.colors.orange.hover};
   }
 
   @media (min-width: 1024px) {
@@ -94,6 +96,7 @@ export const DeleteProfileButton = styled.button`
   background-color: ${({ theme }) => theme.colors.white};
   border: 2px solid ${({ theme }) => theme.colors.danger};
   color: ${({ theme }) => theme.colors.danger};
+  outline: none;
   transition:
     background-color 0.2s,
     color 0.2s;

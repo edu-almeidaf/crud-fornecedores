@@ -22,7 +22,7 @@ export const Content = styled(Dialog.Content)`
 
 export const Title = styled(Dialog.Title)`
   font-size: ${({ theme }) => theme.spacing['6']};
-  margin-bottom: ${({ theme }) => theme.spacing['4']};
+  margin-bottom: ${({ theme }) => theme.spacing['8']};
 `
 
 export const Description = styled(Dialog.Description)`

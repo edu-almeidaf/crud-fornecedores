@@ -72,7 +72,15 @@ export const ExportCsvButton = styled.button`
   background-color: ${({ theme }) => theme.colors.primary.dark};
   color: ${({ theme }) => theme.colors.white};
   border: none;
-  cursor: pointer;
+
+  &:focus {
+    outline-color: ${({ theme }) => theme.colors.primary.dark};
+  }
+
+  &:focus,
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.primary.hover.dark};
+  }
 
   @media (min-width: 1024px) {
     align-self: end;
