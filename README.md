@@ -47,11 +47,11 @@ interface Endereco {
 
 ## Funcionalidades extras:
 
-[ ] - Abrir contato do fornecedor no whatsapp
+[x] - Abrir contato do fornecedor no whatsapp
 [ ] - Método de autenticação
 [ ] - Integrar localização do fornecedor com Google Maps
 [x] - Exportar contatos via CSV
-[ ] - Página de not found
+[x] - Página de not found
 
 ## Tentarei adicionar se houver tempo:
 [ ] - Testes
@@ -63,7 +63,7 @@ interface Endereco {
 ## Ajustes finais:
 [x] - Padronizar estilos, botões e variáveis de espaçamento
 [x] - Validar navegação por teclado em todas as páginas
-[ ] - Inserir loading na tela de detalhes do usuário, no botão de exportar csv e no botão de confirmar exclusão
+[x] - Inserir loading na tela de detalhes do usuário, no botão de exportar csv e no botão de confirmar exclusão
 [x] - Enviar o componente de input para o components global e separar da label
 [x] - Validar tratamento de erros na página de detalhes do fornecedor e na edição de fornecedor
 [ ] - Revisar todos os componentes

@@ -3,6 +3,7 @@ import { Home } from './pages/home'
 import { SupplierForm } from './pages/supplier-form'
 import { App } from './app'
 import { SupplierDetails } from './pages/supplier-details'
+import { NotFound } from './pages/not-found'
 
 export const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ export const router = createBrowserRouter([
       {
         path: '/:id/edit',
         element: <SupplierForm mode="edit" />,
+      },
+      {
+        path: '*',
+        element: <NotFound />,
       },
     ],
   },
