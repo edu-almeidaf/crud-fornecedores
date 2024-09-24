@@ -1,30 +1,30 @@
 import styled from 'styled-components'
 
 export const Main = styled.main`
-  margin-top: 4.25rem;
-  min-height: calc(100vh - 4.25rem);
-  padding: 1rem;
+  margin-top: ${({ theme }) => theme.spacing['17']};
+  min-height: calc(100vh - ${({ theme }) => theme.spacing['17']});
+  padding: ${({ theme }) => theme.spacing['4']};
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: ${({ theme }) => theme.spacing['12']};
 
   @media (min-width: 1024px) {
-    padding: 2rem;
+    padding: ${({ theme }) => theme.spacing['8']};
   }
 `
 
 export const PageTitle = styled.h1`
   text-align: center;
-  font-size: 2rem;
+  font-size: ${({ theme }) => theme.spacing['8']};
 
   @media (min-width: 1024px) {
-    font-size: 2.5rem;
+    font-size: ${({ theme }) => theme.spacing['10']};
   }
 `
 
 export const PageHeader = styled.section`
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: ${({ theme }) => theme.spacing['4']};
   width: 100%;
 `

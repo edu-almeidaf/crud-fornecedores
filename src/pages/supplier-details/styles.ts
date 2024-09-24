@@ -4,13 +4,13 @@ import styled from 'styled-components'
 export const SupplierDetailsContainer = styled.section`
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: ${({ theme }) => theme.spacing['8']};
   max-width: 1440px;
-  width: 100%;
+  width: ${({ theme }) => theme.spacing.full};
   margin: 0 auto;
 
   p {
-    font-size: 1.25rem;
+    font-size: ${({ theme }) => theme.spacing['5']};
     color: ${({ theme }) => theme.colors.title};
 
     span {
@@ -26,7 +26,7 @@ export const SupplierDetailsContainer = styled.section`
 export const ContactList = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1rem;
+  gap: ${({ theme }) => theme.spacing['4']};
 
   @media (min-width: 1024px) {
     grid-template-columns: repeat(2, 1fr);
@@ -38,12 +38,12 @@ export const ContactCard = styled.div`
   flex-direction: column;
   background-color: ${({ theme }) => theme.colors.primary.dark};
   color: ${({ theme }) => theme.colors.white};
-  gap: 1rem;
-  padding: 1rem;
+  gap: ${({ theme }) => theme.spacing['4']};
+  padding: ${({ theme }) => theme.spacing['4']};
   border-radius: ${({ theme }) => theme.radius.md};
 
   p {
-    font-size: 1.25rem;
+    font-size: ${({ theme }) => theme.spacing['5']};
     color: ${({ theme }) => theme.colors.white};
     text-align: left;
   }
@@ -53,7 +53,7 @@ export const ContactCard = styled.div`
   }
 
   ul {
-    padding: 0 2rem;
+    padding: 0 ${({ theme }) => theme.spacing['8']};
   }
 `
 
@@ -62,13 +62,14 @@ export const UpdateProfileLink = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.125rem;
-  padding: 1rem;
+  font-size: ${({ theme }) => theme.spacing['4.5']};
+  padding: ${({ theme }) => theme.spacing['4']};
   border-radius: ${({ theme }) => theme.radius.md};
   border: 2px solid ${({ theme }) => theme.colors.orange.default};
   color: ${({ theme }) => theme.colors.orange.default};
-  transition: background-color 0.2s;
-  transition: color 0.2s;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
 
   &:hover,
   &:focus {
@@ -87,14 +88,15 @@ export const DeleteProfileButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.125rem;
-  padding: 1rem;
+  font-size: ${({ theme }) => theme.spacing['4.5']};
+  padding: ${({ theme }) => theme.spacing['4']};
   border-radius: ${({ theme }) => theme.radius.md};
   background-color: ${({ theme }) => theme.colors.white};
   border: 2px solid ${({ theme }) => theme.colors.danger};
   color: ${({ theme }) => theme.colors.danger};
-  transition: background-color 0.2s;
-  transition: color 0.2s;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
   cursor: pointer;
 
   &:hover,

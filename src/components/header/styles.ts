@@ -4,7 +4,7 @@ export const Container = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2.5rem;
+  padding: ${({ theme }) => `${theme.spacing['4']} ${theme.spacing['10']}`};
   border-bottom: 1px solid ${({ theme }) => theme.colors.gray.default};
   box-shadow: ${({ theme }) => theme.shadows.sm};
   position: fixed;
@@ -18,16 +18,14 @@ export const Container = styled.header`
   }
 
   img {
-    width: 6.25rem;
+    width: ${({ theme }) => theme.spacing['25']};
   }
 
   @media (min-width: 1024px) {
-    & {
-      padding: 1rem 3.125rem;
+    padding: ${({ theme }) => `${theme.spacing['4']} ${theme.spacing['12.5']}`};
 
-      img {
-        width: 9.25rem;
-      }
+    img {
+      width: ${({ theme }) => theme.spacing['37']};
     }
   }
 `

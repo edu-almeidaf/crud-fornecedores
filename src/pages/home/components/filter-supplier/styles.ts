@@ -4,13 +4,13 @@ export const Container = styled.form`
   background-color: ${({ theme }) => theme.colors.primary.default};
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  padding: 1rem;
-  border-radius: 24px 8px;
+  gap: ${({ theme }) => theme.spacing['4']};
+  padding: ${({ theme }) => theme.spacing['4']};
+  border-radius: ${({ theme }) => `${theme.radius['2xl']} ${theme.radius.md}`};
 
   @media (min-width: 1024px) {
     & {
-      padding: 2rem 1rem;
+      padding: ${({ theme }) => `${theme.spacing['8']} ${theme.spacing['4']}`};
       flex-direction: row;
       align-items: center;
     }
@@ -19,7 +19,7 @@ export const Container = styled.form`
 
 export const FilterButton = styled.button`
   background-color: ${({ theme }) => theme.colors.orange.default};
-  padding: 0.75rem 3rem;
+  padding: ${({ theme }) => `${theme.spacing['3.5']} ${theme.spacing['12']}`};
   border-radius: ${({ theme }) => theme.radius.md};
   border: 1px solid ${({ theme }) => theme.colors.orange.default};
   cursor: pointer;
@@ -31,7 +31,7 @@ export const FilterButton = styled.button`
 
   @media (min-width: 1024px) {
     & {
-      font-size: 1.25rem;
+      font-size: ${({ theme }) => theme.spacing['5']};
     }
   }
 `

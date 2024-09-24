@@ -3,12 +3,12 @@ import styled, { css } from 'styled-components'
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: ${({ theme }) => theme.spacing['2']};
   flex: 1;
 `
 
 export const Label = styled.label`
-  font-size: 1.125rem;
+  font-size: ${({ theme }) => theme.spacing['4.5']};
   font-weight: 500;
 
   span:first-child {
@@ -16,12 +16,12 @@ export const Label = styled.label`
   }
 
   span:last-child {
-    font-size: 0.875rem;
+    font-size: ${({ theme }) => theme.spacing['3.5']};
   }
 `
 
 const baseInputStyle = css<{ $hasError: boolean }>`
-  padding: 1rem;
+  padding: ${({ theme }) => theme.spacing['4']};
   border-radius: ${({ theme }) => theme.radius.md};
   outline: 0;
   flex: 1;
@@ -49,12 +49,12 @@ export const InputControl = styled.input<{ $hasError: boolean }>`
 
 export const TextareaControl = styled.textarea<{ $hasError: boolean }>`
   ${baseInputStyle}
-  height: 6rem;
+  height: ${({ theme }) => theme.spacing['24']};
   line-height: 1.6;
   resize: none;
 `
 
 export const ErrorMessage = styled.p`
   color: ${({ theme }) => theme.colors.danger};
-  font-size: 0.875rem;
+  font-size: ${({ theme }) => theme.spacing['3.5']};
 `

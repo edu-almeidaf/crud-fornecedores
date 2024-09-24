@@ -3,17 +3,16 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 export const BackButton = styled(Link)`
-  width: 3rem;
-  height: 3rem;
+  width: ${({ theme }) => theme.spacing['12']};
+  height: ${({ theme }) => theme.spacing['12']};
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: ${({ theme }) => theme.colors.white};
   border: 2px solid ${({ theme }) => theme.colors.primary.dark};
-  border-radius: 50%;
+  border-radius: ${({ theme }) => theme.radius.full};
   box-shadow: ${({ theme }) => theme.shadows.md};
   cursor: pointer;
-  outline: none;
 
   &:focus {
     outline: 2px solid ${({ theme }) => theme.colors.primary.dark};
@@ -22,12 +21,12 @@ export const BackButton = styled(Link)`
 
   @media (max-width: 768px) {
     top: auto;
-    bottom: 20px;
-    left: 20px;
+    bottom: ${({ theme }) => theme.spacing['5']};
+    left: ${({ theme }) => theme.spacing['5']};
   }
 `
 
 export const BackIcon = styled(ArrowLeft)`
-  font-size: 1.125rem;
+  font-size: ${({ theme }) => theme.spacing['4.5']};
   color: ${({ theme }) => theme.colors.primary.dark};
 `

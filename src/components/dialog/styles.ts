@@ -13,19 +13,19 @@ export const Content = styled(Dialog.Content)`
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: ${({ theme }) => theme.colors.white};
-  padding: 2rem;
+  padding: ${({ theme }) => theme.spacing['8']};
   border-radius: ${({ theme }) => theme.radius.md};
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: ${({ theme }) => theme.shadows.lg};
   width: 90vw;
   max-width: 450px;
 `
 
 export const Title = styled(Dialog.Title)`
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
+  font-size: ${({ theme }) => theme.spacing['6']};
+  margin-bottom: ${({ theme }) => theme.spacing['4']};
 `
 
 export const Description = styled(Dialog.Description)`
-  font-size: 1rem;
-  margin-bottom: 2rem;
+  font-size: ${({ theme }) => theme.spacing['4']};
+  margin-bottom: ${({ theme }) => theme.spacing['8']};
 `

@@ -5,8 +5,8 @@ export const SupplierCard = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 1rem;
-  padding: 1rem;
+  gap: ${({ theme }) => theme.spacing['4']};
+  padding: ${({ theme }) => theme.spacing['4']};
   background-color: ${({ theme }) => theme.colors.gray.light};
   border: 1px solid ${({ theme }) => theme.colors.gray.default};
   border-radius: ${({ theme }) => theme.radius.md};
@@ -25,15 +25,16 @@ export const SupplierCard = styled.div`
 
 export const ShowMoreBtn = styled(Link)`
   text-decoration: none;
-  padding: 0.5rem;
+  padding: ${({ theme }) => theme.spacing['2']};
   border-radius: ${({ theme }) => theme.radius.md};
   background-color: transparent;
   border: none;
   cursor: pointer;
   border: 1px solid ${({ theme }) => theme.colors.primary.default};
   color: ${({ theme }) => theme.colors.primary.default};
-  transition: background-color 0.2s;
-  transition: color 0.2s;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
 
   &:hover,
   &:focus {
@@ -43,7 +44,7 @@ export const ShowMoreBtn = styled(Link)`
   }
 
   @media (min-width: 1024px) {
-    padding: 0.5rem 3rem;
+    padding: ${({ theme }) => `${theme.spacing['2']} ${theme.spacing['12']}`};
   }
 `
 
@@ -51,13 +52,13 @@ export const ErrorContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
-  padding: 2rem;
+  gap: ${({ theme }) => theme.spacing['8']};
+  padding: ${({ theme }) => theme.spacing['8']};
 
   svg {
     color: ${({ theme }) => theme.colors.danger};
-    width: 3rem;
-    height: 3rem;
+    width: ${({ theme }) => theme.spacing['12']};
+    height: ${({ theme }) => theme.spacing['12']};
   }
 
   h2 {
@@ -66,7 +67,7 @@ export const ErrorContent = styled.div`
 `
 
 export const ExportCsvButton = styled.button`
-  padding: 0.5rem 1rem;
+  padding: ${({ theme }) => `${theme.spacing['2']} ${theme.spacing['4']}`};
   border-radius: ${({ theme }) => theme.radius.md};
   background-color: ${({ theme }) => theme.colors.primary.dark};
   color: ${({ theme }) => theme.colors.white};

@@ -72,14 +72,15 @@ export const ContactInputs = styled.div`
 `
 
 export const AddContactButton = styled.button`
-  padding: 0.5rem;
+  padding: ${({ theme }) => theme.spacing['2']};
   border-radius: ${({ theme }) => theme.radius.md};
   background-color: transparent;
   cursor: pointer;
   border: 1px solid ${({ theme }) => theme.colors.primary.default};
   color: ${({ theme }) => theme.colors.primary.default};
-  transition: background-color 0.2s;
-  transition: color 0.2s;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
 
   &:hover,
   &:focus {
@@ -95,19 +96,20 @@ export const AddContactButton = styled.button`
 `
 
 export const CreateSupplierBtn = styled.button`
-  padding: 0.5rem;
+  padding: ${({ theme }) => theme.spacing['2']};
   border-radius: ${({ theme }) => theme.radius.md};
   background-color: ${({ theme }) => theme.colors.orange.default};
   border: none;
   cursor: pointer;
   color: ${({ theme }) => theme.colors.white};
-  transition: background-color 0.2s;
-  transition: color 0.2s;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
 
   @media (min-width: 1024px) {
     width: 50%;
-    padding: 1rem;
-    font-size: 1.125rem;
+    padding: ${({ theme }) => theme.spacing['4']};
+    font-size: ${({ theme }) => theme.spacing['4.5']};
     align-self: center;
   }
 `
