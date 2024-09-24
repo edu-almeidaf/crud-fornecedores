@@ -1,7 +1,7 @@
 {
   "suppliers": [
     {
-      "name": "Eduardo",
+      "name": "Eduardo Update 2",
       "description": "Teste",
       "contacts": [
         {
@@ -29,6 +29,19 @@
             "complement": "",
             "reference": "Posto Shell"
           }
+        },
+        {
+          "name": "Contatoasdasd",
+          "phoneNumber": "(42) 99999-9999",
+          "address": {
+            "zipCode": "85010-010",
+            "state": "PR",
+            "city": "Guarapuava",
+            "street": "Rua Guaíra",
+            "number": "2121",
+            "complement": "Casa",
+            "reference": "Superpão"
+          }
         }
       ],
       "id": 1
@@ -52,6 +65,26 @@
         }
       ],
       "id": 3
+    },
+    {
+      "name": "Xablau",
+      "description": "Uma descrição muito legal",
+      "contacts": [
+        {
+          "name": "Maria",
+          "phoneNumber": "(42) 99999-9999",
+          "address": {
+            "zipCode": "85070-190",
+            "state": "PR",
+            "city": "Guarapuava",
+            "street": "Rua Pedro Siqueira",
+            "number": "444",
+            "complement": "Ap 02",
+            "reference": "Parteka"
+          }
+        }
+      ],
+      "id": 4
     }
   ]
 }

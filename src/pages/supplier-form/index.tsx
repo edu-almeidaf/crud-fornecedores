@@ -1,5 +1,5 @@
 import { Main, PageHeader, PageTitle } from '@/components/main/styles'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import {
   Form,
   AddContactButton,
@@ -12,7 +12,6 @@ import {
   FormData,
   formSchema,
 } from '@/schemas/supplier-form-schema'
-import { toast } from 'react-hot-toast'
 import { Spinner } from '@/components/spinner'
 import { BackButtonComponent } from '@/components/back-button'
 import { Input, Textarea } from '@/components/form'
@@ -27,6 +26,7 @@ import { useEffect } from 'react'
 import { useUpdateSupplier } from '@/hooks/useUpdateSupplier'
 import Skeleton from 'react-loading-skeleton'
 import { NotFound } from '../not-found'
+import toast from 'react-hot-toast'
 
 interface SupplierFormProps {
   mode: 'new' | 'edit'
@@ -34,7 +34,6 @@ interface SupplierFormProps {
 
 export function SupplierForm({ mode }: SupplierFormProps) {
   const { id } = useParams()
-  const navigate = useNavigate()
   const { handleCreateSupplier, createPending } = useCreateSupplier()
   const { handleUpdateSupplier, updatePending } = useUpdateSupplier()
   const isEditSupplierPage = mode === 'edit' && id
@@ -89,17 +88,6 @@ export function SupplierForm({ mode }: SupplierFormProps) {
   }, [supplierDetails, reset])
 
   async function onSubmit(data: FormData) {
-    const formattedMessagesInfo = {
-      new: {
-        success: 'Fornecedor criado com sucesso',
-        error: 'Erro ao criar o fornecedor, tente novamente mais tarde',
-      },
-      edit: {
-        success: 'Fornecedor atualizado com sucesso',
-        error: 'Erro ao criar o fornecedor, tente novamente mais tarde',
-      },
-    }
-
     try {
       if (isEditSupplierPage) {
         await handleUpdateSupplier({ id, data })
@@ -107,11 +95,11 @@ export function SupplierForm({ mode }: SupplierFormProps) {
         await handleCreateSupplier(data)
       }
 
-      toast.success(formattedMessagesInfo[mode].success)
-      navigate(isEditSupplierPage ? `/${id}` : '/')
       reset()
     } catch {
-      toast.error(formattedMessagesInfo[mode].error)
+      toast.error(
+        `Erro ao ${isEditSupplierPage ? 'editar' : 'criar'} fornecedor`,
+      )
     }
   }
 
@@ -174,7 +162,7 @@ export function SupplierForm({ mode }: SupplierFormProps) {
                 type="button"
                 onClick={() => append(contactsInitialFormState)}
               >
-                Adicionar contato
+                Novo contato
               </AddContactButton>
 
               {errors.contacts && <p>{errors.contacts.message}</p>}

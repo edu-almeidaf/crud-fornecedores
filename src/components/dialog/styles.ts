@@ -28,4 +28,5 @@ export const Title = styled(Dialog.Title)`
 export const Description = styled(Dialog.Description)`
   font-size: ${({ theme }) => theme.spacing['4']};
   margin-bottom: ${({ theme }) => theme.spacing['8']};
+  text-align: center;
 `

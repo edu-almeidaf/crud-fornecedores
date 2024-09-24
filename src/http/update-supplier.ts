@@ -8,7 +8,5 @@ interface UpdateSupplierRequest {
 }
 
 export async function updateSupplier({ id, data }: UpdateSupplierRequest) {
-  const response = await api.put<Supplier>(`suppliers/${id}`, data)
-
-  return response.data
+  await api.put<Supplier>(`suppliers/${id}`, data)
 }
